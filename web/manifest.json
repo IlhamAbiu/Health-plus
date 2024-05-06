@@ -1,6 +1,6 @@
 {
-    "name": "heath_plus",
-    "short_name": "heath_plus",
+    "name": "health_plus",
+    "short_name": "health_plus",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

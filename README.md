@@ -1,4 +1,4 @@
-# heath_plus
+# health_plus
 
 A new Flutter project.
 

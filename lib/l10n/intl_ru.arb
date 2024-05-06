@@ -1,1 +1,74 @@
-{}
+{
+    "measurement_log" : "Журнал измерений",
+    "no_data" : "Нет данных",
+    "no_data_today" : "Нет данных за сегодня",
+    "data_not_available" : "Данные не доступны",
+    "blood_pressure" : "Артериальное давление",
+    "blood_pressure_value" : "{systolic}/{diastolic} мм рт. ст.",
+    "@blood_pressure_value" : {
+        "placeholders" : {
+            "systolic" : {
+                "type" : "num"
+            },
+            "diastolic" : {
+                "type" : "num"
+            }
+        }
+    },
+    "blood_oxygen" : "{value}%",
+    "@blood_oxygen" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "blood_oxygen_description" : "Уровень кислорода в крови - показатель здоровья легких",
+    "sleep_indicator" : "Показатель сна",
+    "sleep_indicator_value" : "{value}",
+    "@sleep_indicator_value" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+             }
+         }
+    },
+    "pulse_throughout_the_day" : "Пульс в течении дня",
+    "average" : "Средний",
+    "max" : "Максимум",
+    "min" : "Минимум",
+    "pulse_value" : "{value} уд/м",
+    "@pulse_value" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "your_body_composition" : "Ваш состав тела",
+    "body_mass" : "{value} кг",
+    "@body_mass" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "muscle_mass" : "{value} кг",
+    "@muscle_mass" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "fat_mass" : "{value}%",
+    "@fat_mass" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    }
+
+}

@@ -3,7 +3,8 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:heath_plus/domain/services/health_service/health_service.dart';
+import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
+import 'package:health_plus/domain/services/health_service/health_service.dart';
 
 enum AppLoadingState {
   initial,
@@ -14,9 +15,13 @@ enum AppLoadingState {
 }
 
 class AppLoadingCubit extends Cubit<AppLoadingState> {
-  AppLoadingCubit() : super(AppLoadingState.initial) {
+  AppLoadingCubit({required HealthCubit healthProvider})
+      : _healthProvider = healthProvider,
+        super(AppLoadingState.initial) {
     _loading();
   }
+
+  final HealthCubit _healthProvider;
 
   void _loading() async {
     emit(AppLoadingState.waiting);
@@ -25,7 +30,7 @@ class AppLoadingCubit extends Cubit<AppLoadingState> {
       if (sdkAvailable) {
         final authorized = await HealthService().authorization();
         if (authorized) {
-          await HealthService().fetchData();
+          await _healthProvider.fetchData();
           emit(AppLoadingState.success);
         } else {
           emit(AppLoadingState.SDKNotAvailable);

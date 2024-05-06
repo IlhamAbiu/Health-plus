@@ -15,7 +15,11 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: child,
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
       bottomNavigationBar: const NavBar(),
     );
   }

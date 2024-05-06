@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:heath_plus/domain/services/health_service/health_service.dart';
+import 'package:health_plus/domain/services/health_service/health_service.dart';
 
 class AppAuthorizationScreen extends StatelessWidget {
   const AppAuthorizationScreen({super.key});

@@ -1,4 +1,4 @@
-name: heath_plus
+name: health_plus
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -34,6 +34,8 @@ dependencies:
   fl_chart: ^0.67.0
   permission_handler: ^11.3.1
   custom_refresh_indicator: ^3.1.0
+  provider: ^6.1.2
+
 
 dev_dependencies:
   flutter_test:

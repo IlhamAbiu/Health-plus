@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:heath_plus/gen/assets.gen.dart';
-import 'package:heath_plus/router/router.dart';
-import 'package:heath_plus/router/router_patches.dart';
+import 'package:health_plus/gen/assets.gen.dart';
+import 'package:health_plus/router/router.dart';
+import 'package:health_plus/router/router_patches.dart';
 
 import 'nav_bar_button.dart';
 

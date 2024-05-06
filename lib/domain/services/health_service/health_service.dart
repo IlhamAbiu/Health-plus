@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:health/health.dart';
@@ -18,8 +20,6 @@ class HealthService {
 
   List<HealthDataAccess> get _permissions =>
       _types.map((e) => HealthDataAccess.READ_WRITE).toList();
-
-  final List<HealthDataPoint> _healthDataList = [];
 
   Future<bool> checkSdkAvailable() async {
     final status = await Health().getHealthConnectSdkStatus();
@@ -43,17 +43,23 @@ class HealthService {
     await Health().installHealthConnect();
   }
 
-  Future<void> fetchData() async {
+  Future<List<HealthDataPoint>> fetchData({
+    required List<HealthDataType> types,
+  }) async {
     final now = DateTime.now();
-    final yesterday = now.subtract(const Duration(hours: 24));
+    final startTime = DateTime(2020);
     try {
       List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
-        types: _types,
-        startTime: yesterday,
+        types: types,
+        startTime: startTime,
         endTime: now,
       );
-      _healthDataList.clear();
-      _healthDataList.addAll(Health().removeDuplicates(healthData));
+      final List<HealthDataPoint> healthDataList = [];
+      healthDataList.addAll(Health().removeDuplicates(healthData));
+      for (var element in healthDataList) {
+        log('fetched data: ${json.encode(element.toJson())}');
+      }
+      return healthDataList;
     } catch (_) {
       rethrow;
     }

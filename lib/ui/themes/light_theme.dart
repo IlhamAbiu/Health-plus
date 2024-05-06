@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 final lightTheme = ThemeData.light().copyWith(
   colorScheme: const ColorScheme.light().copyWith(
@@ -9,12 +8,5 @@ final lightTheme = ThemeData.light().copyWith(
     primary: const Color(0xFF585CE5),
     onPrimary: Colors.white,
     primaryContainer: const Color(0xFFD0D1FF),
-  ),
-  textTheme: TextTheme(
-    bodyMedium: GoogleFonts.notoSans().copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 12,
-      color: Colors.white,
-    ),
   ),
 );

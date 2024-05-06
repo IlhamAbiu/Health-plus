@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:heath_plus/router/router.dart';
-import 'package:heath_plus/ui/components/loading_indicator.dart';
+import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
+import 'package:health_plus/router/router.dart';
+import 'package:health_plus/ui/components/loading_indicator.dart';
 
 import 'app_loading_cubit.dart';
 
@@ -11,7 +12,8 @@ class AppLoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppLoadingCubit(),
+      create: (_) =>
+          AppLoadingCubit(healthProvider: context.read<HealthCubit>()),
       child: BlocListener<AppLoadingCubit, AppLoadingState>(
         child: Scaffold(
           backgroundColor: Theme.of(context).colorScheme.background,

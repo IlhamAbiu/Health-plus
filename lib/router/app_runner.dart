@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:heath_plus/features/app_info/app_info.dart';
+import 'package:health_plus/features/app_info/app_info.dart';
 
 import 'app_builder.dart';
 
