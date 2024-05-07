@@ -9,6 +9,9 @@ class HealthState extends Equatable {
     this.heartRateDataList,
     this.bodyMassDataList,
     this.bodyFatPercentageDataList,
+    this.stepsDataList,
+    this.totalCaloriesBurnedDataList,
+    this.workoutDataList,
   });
 
   final List<HealthDataPoint>? oxygenDataList;
@@ -18,6 +21,9 @@ class HealthState extends Equatable {
   final List<HealthDataPoint>? heartRateDataList;
   final List<HealthDataPoint>? bodyMassDataList;
   final List<HealthDataPoint>? bodyFatPercentageDataList;
+  final List<HealthDataPoint>? stepsDataList;
+  final List<HealthDataPoint>? totalCaloriesBurnedDataList;
+  final List<HealthDataPoint>? workoutDataList;
 
   @override
   List<Object?> get props => [
@@ -28,5 +34,8 @@ class HealthState extends Equatable {
         heartRateDataList,
         bodyMassDataList,
         bodyFatPercentageDataList,
+        stepsDataList,
+        totalCaloriesBurnedDataList,
+        workoutDataList,
       ];
 }

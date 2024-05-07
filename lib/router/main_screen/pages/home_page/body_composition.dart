@@ -53,7 +53,9 @@ class BodyComposition extends StatelessWidget {
                           bodyMass == null
                               ? S().no_data
                               : S().body_mass(
-                                  bodyMass.numericValue,
+                                  double.parse(
+                                    bodyMass.numericValue.toStringAsFixed(1),
+                                  ),
                                 ),
                           style: TextStyle(
                             fontFamily: GoogleFonts.roboto().fontFamily,

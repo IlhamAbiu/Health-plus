@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health/health.dart';
 import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
+import 'package:health_plus/domain/services/health_service/health_service.dart';
 import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
@@ -40,7 +41,7 @@ class HeartRate extends StatelessWidget {
           children: [
             Row(
               children: [
-                Assets.svg.pulseThroughoutTheDay.svg(),
+                Assets.svg.heartRate.svg(),
                 const SizedBox(width: 15),
                 Text(
                   S().pulse_throughout_the_day,
@@ -65,9 +66,8 @@ class HeartRate extends StatelessWidget {
                   lastDataDate.year, lastDataDate.month, lastDataDate.day);
               if (lastData != null &&
                   lastDataMidnight.isAtSameMomentAs(midnight)) {
-                _fetchDataToDay(state.heartRateDataList!);
                 return FutureBuilder(
-                  future: _fetchDataToDay(state.heartRateDataList!),
+                  future: _fetchDataToDay(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Row(
@@ -174,7 +174,9 @@ class HeartRate extends StatelessWidget {
     );
   }
 
-  Future<List<num>> _fetchDataToDay(List<HealthDataPoint> list) async {
+  Future<List<num>> _fetchDataToDay() async {
+    final list = await HealthService()
+        .fetchDataAfterToDay(types: [HealthDataType.HEART_RATE]);
     num? maxValue;
     num? minValue;
     num? average;

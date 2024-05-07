@@ -3,11 +3,15 @@ import 'package:go_router/go_router.dart';
 
 import 'app_authorization_screen/app_authorization_screen.dart';
 import 'app_loading_screen/app_loading_screen.dart';
+import 'blood_oxygen_screen/blood_oxygen_screen.dart';
+import 'heart_rate_screen/heart_rate_screen.dart';
 import 'main_screen/main_screen.dart';
 import 'main_screen/pages/home_page/home_page.dart';
 import 'main_screen/pages/recommendation_page/recommendation_page.dart';
 import 'main_screen/pages/statistics_page/statistics_page.dart';
 import 'router_patches.dart';
+import 'steps_screen/steps_screen.dart';
+import 'weight_screen/weight_screen.dart';
 
 part 'router.g.dart';
 
@@ -122,5 +126,49 @@ class AppLoadingRoute extends GoRouteData {
         context: context,
         state: state,
         child: const AppLoadingScreen(),
+      );
+}
+
+@TypedGoRoute<HeartRateRoute>(path: heartRatePath)
+class HeartRateRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const HeartRateScreen(),
+      );
+}
+
+@TypedGoRoute<StepsRoute>(path: stepsPath)
+class StepsRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const StepsScreen(),
+      );
+}
+
+@TypedGoRoute<WeightRoute>(path: weightPath)
+class WeightRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const WeightScreen(),
+      );
+}
+
+@TypedGoRoute<BloodOxygenRoute>(path: bloodOxygenPath)
+class BloodOxygenRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const BloodOxygenScreen(),
       );
 }

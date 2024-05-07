@@ -60,11 +60,31 @@ class S {
     );
   }
 
+  /// `Тенденции`
+  String get trends {
+    return Intl.message(
+      'Тенденции',
+      name: 'trends',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Нет данных`
   String get no_data {
     return Intl.message(
       'Нет данных',
       name: 'no_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подсчёт`
+  String get calculation {
+    return Intl.message(
+      'Подсчёт',
+      name: 'calculation',
       desc: '',
       args: [],
     );
@@ -111,10 +131,10 @@ class S {
   }
 
   /// `{value}%`
-  String blood_oxygen(num value) {
+  String blood_oxygen_value(num value) {
     return Intl.message(
       '$value%',
-      name: 'blood_oxygen',
+      name: 'blood_oxygen_value',
       desc: '',
       args: [value],
     );
@@ -237,6 +257,196 @@ class S {
       name: 'fat_mass',
       desc: '',
       args: [value],
+    );
+  }
+
+  /// `{value}`
+  String steps_to_day_current(num value) {
+    return Intl.message(
+      '$value',
+      name: 'steps_to_day_current',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `\n/{value} шаг.`
+  String steps_to_day_target(num value) {
+    return Intl.message(
+      '\n/$value шаг.',
+      name: 'steps_to_day_target',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `{value}%`
+  String steps_to_day_percent(num value) {
+    return Intl.message(
+      '$value%',
+      name: 'steps_to_day_percent',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `{value} шагов`
+  String steps(num value) {
+    return Intl.message(
+      '$value шагов',
+      name: 'steps',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `{value} минут`
+  String time(num value) {
+    return Intl.message(
+      '$value минут',
+      name: 'time',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `{value} Ккал`
+  String calories(num value) {
+    return Intl.message(
+      '$value Ккал',
+      name: 'calories',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Пн`
+  String get monday {
+    return Intl.message(
+      'Пн',
+      name: 'monday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вт`
+  String get tuesday {
+    return Intl.message(
+      'Вт',
+      name: 'tuesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ср`
+  String get wednesday {
+    return Intl.message(
+      'Ср',
+      name: 'wednesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Чт`
+  String get thursday {
+    return Intl.message(
+      'Чт',
+      name: 'thursday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пт`
+  String get friday {
+    return Intl.message(
+      'Пт',
+      name: 'friday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сб`
+  String get saturday {
+    return Intl.message(
+      'Сб',
+      name: 'saturday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вс`
+  String get sunday {
+    return Intl.message(
+      'Вс',
+      name: 'sunday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Шаги`
+  String get step {
+    return Intl.message(
+      'Шаги',
+      name: 'step',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вес`
+  String get weight {
+    return Intl.message(
+      'Вес',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Кислород в крови`
+  String get blood_oxygen {
+    return Intl.message(
+      'Кислород в крови',
+      name: 'blood_oxygen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пульс`
+  String get heart_rate {
+    return Intl.message(
+      'Пульс',
+      name: 'heart_rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Средний пульс в течении дня`
+  String get average_pulse_throughout_the_day {
+    return Intl.message(
+      'Средний пульс в течении дня',
+      name: 'average_pulse_throughout_the_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Среднее значение в течении дня`
+  String get average_value_throughout_the_day {
+    return Intl.message(
+      'Среднее значение в течении дня',
+      name: 'average_value_throughout_the_day',
+      desc: '',
+      args: [],
     );
   }
 }

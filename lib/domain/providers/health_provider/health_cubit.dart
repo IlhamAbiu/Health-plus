@@ -15,6 +15,9 @@ class HealthCubit extends Cubit<HealthState> {
   List<HealthDataPoint>? heartRateDataList;
   List<HealthDataPoint>? bodyMassDataList;
   List<HealthDataPoint>? bodyFatPercentageDataList;
+  List<HealthDataPoint>? stepsDataList;
+  List<HealthDataPoint>? totalCaloriesBurnedDataList;
+  List<HealthDataPoint>? workoutDataList;
 
   Future<void> fetchData() async {
     try {
@@ -39,6 +42,15 @@ class HealthCubit extends Cubit<HealthState> {
       bodyFatPercentageDataList = await HealthService().fetchData(
         types: [HealthDataType.BODY_FAT_PERCENTAGE],
       );
+      stepsDataList = await HealthService().fetchData(
+        types: [HealthDataType.STEPS],
+      );
+      totalCaloriesBurnedDataList = await HealthService().fetchData(
+        types: [HealthDataType.TOTAL_CALORIES_BURNED],
+      );
+      workoutDataList = await HealthService().fetchData(
+        types: [HealthDataType.WORKOUT],
+      );
       emit(
         HealthState(
           oxygenDataList: oxygenDataList,
@@ -48,6 +60,9 @@ class HealthCubit extends Cubit<HealthState> {
           heartRateDataList: heartRateDataList,
           bodyMassDataList: bodyMassDataList,
           bodyFatPercentageDataList: bodyFatPercentageDataList,
+          stepsDataList: stepsDataList,
+          totalCaloriesBurnedDataList: totalCaloriesBurnedDataList,
+          workoutDataList: workoutDataList,
         ),
       );
     } catch (_) {

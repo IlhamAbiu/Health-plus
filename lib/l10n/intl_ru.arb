@@ -1,6 +1,8 @@
 {
     "measurement_log" : "Журнал измерений",
+    "trends" : "Тенденции",
     "no_data" : "Нет данных",
+    "calculation" : "Подсчёт",
     "no_data_today" : "Нет данных за сегодня",
     "data_not_available" : "Данные не доступны",
     "blood_pressure" : "Артериальное давление",
@@ -15,8 +17,8 @@
             }
         }
     },
-    "blood_oxygen" : "{value}%",
-    "@blood_oxygen" : {
+    "blood_oxygen_value" : "{value}%",
+    "@blood_oxygen_value" : {
         "placeholders" : {
             "value" : {
                 "type" : "num"
@@ -69,6 +71,66 @@
                 "type" : "num"
             }
         }
-    }
-
-}
+    },
+    "steps_to_day_current" : "{value}",
+    "@steps_to_day_current" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    }, 
+    "steps_to_day_target" : "\n/{value} шаг.",
+    "@steps_to_day_target" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "steps_to_day_percent" : "{value}%",
+    "@steps_to_day_percent" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "steps" : "{value} шагов",
+    "@steps" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "time" : "{value} минут",
+    "@time" : {
+      "placeholders" : {
+        "value" : {
+          "type" : "num"
+        }
+      }
+    },
+    "calories" : "{value} Ккал",
+    "@calories" : {
+        "placeholders" : {
+            "value" : {
+                "type" : "num"
+            }
+        }
+    },
+    "monday" : "Пн",
+    "tuesday" : "Вт",
+    "wednesday" : "Ср",
+    "thursday" : "Чт",
+    "friday" : "Пт",
+    "saturday" : "Сб",
+    "sunday" : "Вс",
+    "step" : "Шаги",
+    "weight" : "Вес",
+    "blood_oxygen" : "Кислород в крови",
+    "heart_rate" : "Пульс",
+    "average_pulse_throughout_the_day" : "Средний пульс в течении дня",
+    "average_value_throughout_the_day" : "Среднее значение в течении дня"
+ }

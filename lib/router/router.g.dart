@@ -13,6 +13,10 @@ List<RouteBase> get $appRoutes => [
       $statisticsRoute,
       $appAuthorizationRoute,
       $appLoadingRoute,
+      $heartRateRoute,
+      $stepsRoute,
+      $weightRoute,
+      $bloodOxygenRoute,
     ];
 
 RouteBase get $mainRoute => ShellRouteData.$route(
@@ -137,6 +141,94 @@ extension $AppLoadingRouteExtension on AppLoadingRoute {
 
   String get location => GoRouteData.$location(
         '/app_loading',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $heartRateRoute => GoRouteData.$route(
+      path: '/heart_rate',
+      factory: $HeartRateRouteExtension._fromState,
+    );
+
+extension $HeartRateRouteExtension on HeartRateRoute {
+  static HeartRateRoute _fromState(GoRouterState state) => HeartRateRoute();
+
+  String get location => GoRouteData.$location(
+        '/heart_rate',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $stepsRoute => GoRouteData.$route(
+      path: '/steps',
+      factory: $StepsRouteExtension._fromState,
+    );
+
+extension $StepsRouteExtension on StepsRoute {
+  static StepsRoute _fromState(GoRouterState state) => StepsRoute();
+
+  String get location => GoRouteData.$location(
+        '/steps',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $weightRoute => GoRouteData.$route(
+      path: '/weight',
+      factory: $WeightRouteExtension._fromState,
+    );
+
+extension $WeightRouteExtension on WeightRoute {
+  static WeightRoute _fromState(GoRouterState state) => WeightRoute();
+
+  String get location => GoRouteData.$location(
+        '/weight',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $bloodOxygenRoute => GoRouteData.$route(
+      path: '/blood_oxygen',
+      factory: $BloodOxygenRouteExtension._fromState,
+    );
+
+extension $BloodOxygenRouteExtension on BloodOxygenRoute {
+  static BloodOxygenRoute _fromState(GoRouterState state) => BloodOxygenRoute();
+
+  String get location => GoRouteData.$location(
+        '/blood_oxygen',
       );
 
   void go(BuildContext context) => context.go(location);

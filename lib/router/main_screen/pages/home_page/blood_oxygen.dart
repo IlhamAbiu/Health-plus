@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:health/health.dart';
 
 import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
+import 'package:health_plus/domain/services/health_service/health_service.dart';
 import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 
@@ -37,23 +38,23 @@ class BloodOxygen extends StatelessWidget {
           children: [
             BlocBuilder<HealthCubit, HealthState>(
               builder: (context, state) {
-                final value = state.oxygenDataList?.isNotEmpty == true
-                    ? state.oxygenDataList!.last.value as NumericHealthValue
-                    : null;
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Assets.svg.bloodOxygen.svg(),
                     const SizedBox(width: 18.3),
-                    Text(
-                      _text(value),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: GoogleFonts.roboto().fontFamily,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                    FutureBuilder(
+                      future: _fetchDataToDay(),
+                      builder: (context, snapshot) => Text(
+                        _text(snapshot.requireData),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: GoogleFonts.roboto().fontFamily,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ],
@@ -81,7 +82,13 @@ class BloodOxygen extends StatelessWidget {
     if (value == null) {
       return S().no_data;
     } else {
-      return S().blood_oxygen(value.numericValue.toInt());
+      return S().blood_oxygen_value(value.numericValue.toInt());
     }
+  }
+
+  Future<NumericHealthValue?> _fetchDataToDay() async {
+    final list = await HealthService()
+        .fetchDataAfterToDay(types: [HealthDataType.BLOOD_OXYGEN]);
+    return list.isEmpty ? null : list.last.value as NumericHealthValue;
   }
 }

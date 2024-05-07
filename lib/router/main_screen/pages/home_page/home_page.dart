@@ -6,11 +6,13 @@ import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
 import 'package:health_plus/generated/l10n.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
+import 'activity_rings.dart';
 import 'blood_oxygen.dart';
 import 'blood_pressure.dart';
 import 'body_composition.dart';
 import 'heart_rate.dart';
 import 'sleep_session.dart';
+import 'steps.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -48,8 +50,9 @@ class _HomePageState extends State<HomePage> {
         );
       },
       child: ListView(
+        key: GlobalKey(),
         padding: const EdgeInsets.symmetric(
-          vertical: 10,
+          vertical: 20,
           horizontal: 20,
         ),
         children: [
@@ -63,7 +66,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 14),
+          const Steps(),
+          const SizedBox(height: 20),
           const BloodPressure(),
+          const SizedBox(height: 20),
+          const ActivityRings(),
           const SizedBox(height: 20),
           const HeartRate(),
           const SizedBox(height: 20),

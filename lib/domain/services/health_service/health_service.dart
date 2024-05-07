@@ -47,7 +47,51 @@ class HealthService {
     required List<HealthDataType> types,
   }) async {
     final now = DateTime.now();
-    final startTime = DateTime(2020);
+    final startTime = now.subtract(const Duration(days: 30));
+    try {
+      List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
+        types: types,
+        startTime: startTime,
+        endTime: now,
+      );
+      final List<HealthDataPoint> healthDataList = [];
+      healthDataList.addAll(Health().removeDuplicates(healthData));
+      for (var element in healthDataList) {
+        log('fetched data: ${json.encode(element.toJson())}');
+      }
+      return healthDataList;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<List<HealthDataPoint>> fetchDataAfter7days({
+    required List<HealthDataType> types,
+  }) async {
+    final now = DateTime.now();
+    final startTime = now.subtract(const Duration(days: 7));
+    try {
+      List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
+        types: types,
+        startTime: startTime,
+        endTime: now,
+      );
+      final List<HealthDataPoint> healthDataList = [];
+      healthDataList.addAll(Health().removeDuplicates(healthData));
+      for (var element in healthDataList) {
+        log('fetched data: ${json.encode(element.toJson())}');
+      }
+      return healthDataList;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<List<HealthDataPoint>> fetchDataAfterToDay({
+    required List<HealthDataType> types,
+  }) async {
+    final now = DateTime.now();
+    final startTime = DateTime(now.year, now.month, now.day);
     try {
       List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
         types: types,

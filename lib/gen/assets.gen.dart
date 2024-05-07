@@ -14,6 +14,10 @@ import 'package:flutter/services.dart';
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/arrow_forward.svg
+  SvgGenImage get arrowForward =>
+      const SvgGenImage('assets/svg/arrow_forward.svg');
+
   /// File path: assets/svg/blood_oxygen.svg
   SvgGenImage get bloodOxygen =>
       const SvgGenImage('assets/svg/blood_oxygen.svg');
@@ -25,8 +29,14 @@ class $AssetsSvgGen {
   /// File path: assets/svg/body_mass.svg
   SvgGenImage get bodyMass => const SvgGenImage('assets/svg/body_mass.svg');
 
+  /// File path: assets/svg/calories.svg
+  SvgGenImage get calories => const SvgGenImage('assets/svg/calories.svg');
+
   /// File path: assets/svg/fat_mass.svg
   SvgGenImage get fatMass => const SvgGenImage('assets/svg/fat_mass.svg');
+
+  /// File path: assets/svg/heart_rate.svg
+  SvgGenImage get heartRate => const SvgGenImage('assets/svg/heart_rate.svg');
 
   /// File path: assets/svg/home_selected.svg
   SvgGenImage get homeSelected =>
@@ -38,10 +48,6 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/muscle_mass.svg
   SvgGenImage get muscleMass => const SvgGenImage('assets/svg/muscle_mass.svg');
-
-  /// File path: assets/svg/pulse_throughout_the_day.svg
-  SvgGenImage get pulseThroughoutTheDay =>
-      const SvgGenImage('assets/svg/pulse_throughout_the_day.svg');
 
   /// File path: assets/svg/recommendation_selected.svg
   SvgGenImage get recommendationSelected =>
@@ -69,23 +75,41 @@ class $AssetsSvgGen {
   SvgGenImage get statisticsUnselected =>
       const SvgGenImage('assets/svg/statistics_unselected.svg');
 
+  /// File path: assets/svg/step.svg
+  SvgGenImage get step => const SvgGenImage('assets/svg/step.svg');
+
+  /// File path: assets/svg/steps.svg
+  SvgGenImage get steps => const SvgGenImage('assets/svg/steps.svg');
+
+  /// File path: assets/svg/time.svg
+  SvgGenImage get time => const SvgGenImage('assets/svg/time.svg');
+
+  /// File path: assets/svg/weight.svg
+  SvgGenImage get weight => const SvgGenImage('assets/svg/weight.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+        arrowForward,
         bloodOxygen,
         bloodPressure,
         bodyMass,
+        calories,
         fatMass,
+        heartRate,
         homeSelected,
         homeUnselected,
         muscleMass,
-        pulseThroughoutTheDay,
         recommendationSelected,
         recommendationUnselected,
         sleepDuration,
         sleepFrom,
         sleepTo,
         statisticsSelected,
-        statisticsUnselected
+        statisticsUnselected,
+        step,
+        steps,
+        time,
+        weight
       ];
 }
 
