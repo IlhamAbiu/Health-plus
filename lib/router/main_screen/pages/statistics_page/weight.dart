@@ -76,7 +76,7 @@ class Weight extends StatelessWidget {
                   int? maxValue = findMaxOrNull(snapshot.requireData.values
                       .where((value) => value != null)
                       .cast<int>());
-                  final min = (minValue ?? 0) - (minValue ?? 0) % 10 - 10;
+                  final min = (minValue ?? 0) - (minValue ?? 0) % 10;
                   final max = (maxValue ?? 0) - (maxValue ?? 0) % 10 + 10;
                   return LineChart(
                     duration: Duration.zero,
