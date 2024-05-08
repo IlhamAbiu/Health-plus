@@ -37,7 +37,7 @@ class BloodOxygen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BlocBuilder<HealthCubit, HealthState>(
-              builder: (context, state) {
+              builder: (context, _) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -47,7 +47,7 @@ class BloodOxygen extends StatelessWidget {
                     FutureBuilder(
                       future: _fetchDataToDay(),
                       builder: (context, snapshot) => Text(
-                        _text(snapshot.requireData),
+                        _text(snapshot.data),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: GoogleFonts.roboto().fontFamily,

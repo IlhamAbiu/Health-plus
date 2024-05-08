@@ -70,14 +70,11 @@ class Steps extends StatelessWidget {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const LoadingIndicator();
                   }
-
                   int? maxValue = findMaxOrNull(snapshot.requireData.values
                       .where((value) => value != null)
                       .cast<int>());
-
                   const min = 0;
-                  final max =
-                      maxValue != null ? ((maxValue ~/ 1000) + 1) * 1000 : 0;
+                  final max = (maxValue ?? 0) - (maxValue ?? 0) % 1000 + 1000;
                   return LineChart(
                     duration: Duration.zero,
                     LineChartData(

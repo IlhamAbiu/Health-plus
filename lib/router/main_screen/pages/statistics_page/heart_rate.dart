@@ -77,10 +77,8 @@ class HeartRate extends StatelessWidget {
                       .where((value) => value != null)
                       .cast<int>());
 
-                  final min =
-                      minValue != null ? ((minValue ~/ 10) - 1) * 10 : 0;
-                  final max =
-                      maxValue != null ? ((maxValue ~/ 10) + 1) * 10 : 0;
+                  final min = (minValue ?? 0) - (minValue ?? 0) % 10 - 10;
+                  final max = (maxValue ?? 0) - (maxValue ?? 0) % 10 + 10;
                   return LineChart(
                     duration: Duration.zero,
                     LineChartData(
@@ -113,7 +111,7 @@ class HeartRate extends StatelessWidget {
                         leftTitles: AxisTitles(
                           drawBelowEverything: true,
                           sideTitles: SideTitles(
-                            interval: (max - min) / 3,
+                            interval: 10,
                             reservedSize: 50,
                             showTitles: true,
                             getTitlesWidget: (value, meta) {

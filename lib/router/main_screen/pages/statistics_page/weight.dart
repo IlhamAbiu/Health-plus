@@ -76,14 +76,16 @@ class Weight extends StatelessWidget {
                   int? maxValue = findMaxOrNull(snapshot.requireData.values
                       .where((value) => value != null)
                       .cast<int>());
+                  final min = (minValue ?? 0) - (minValue ?? 0) % 10 - 10;
+                  final max = (maxValue ?? 0) - (maxValue ?? 0) % 10 + 10;
                   return LineChart(
                     duration: Duration.zero,
                     LineChartData(
                       gridData: const FlGridData(show: false),
                       minX: 0,
                       maxX: 6,
-                      minY: minValue != null ? ((minValue ~/ 20) * 20) : 0,
-                      maxY: maxValue != null ? ((maxValue ~/ 25) + 1) * 25 : 0,
+                      minY: min.toDouble(),
+                      maxY: max.toDouble(),
                       borderData: FlBorderData(show: false),
                       lineBarsData: [
                         LineChartBarData(
@@ -108,7 +110,7 @@ class Weight extends StatelessWidget {
                         leftTitles: AxisTitles(
                           drawBelowEverything: true,
                           sideTitles: SideTitles(
-                            interval: maxValue! / minValue! * 10,
+                            interval: 10,
                             reservedSize: 50,
                             showTitles: true,
                             getTitlesWidget: (value, meta) {
@@ -207,7 +209,6 @@ class Weight extends StatelessWidget {
         minValue = value;
       }
     }
-
     return minValue;
   }
 
@@ -238,10 +239,10 @@ class Weight extends StatelessWidget {
     final List<HealthDataPoint> list = args['list'];
 
     final data = <int, int?>{};
-
     int lastDay = list.last.dateTo.weekday;
 
     num maxValue = (list.last.value as NumericHealthValue).numericValue;
+    num minValue = (list.last.value as NumericHealthValue).numericValue;
 
     for (var element in list.reversed) {
       final date = element.dateTo;
@@ -253,13 +254,17 @@ class Weight extends StatelessWidget {
         lastDay = dayOfWeek;
         final value = element.value as NumericHealthValue;
         maxValue = value.numericValue;
+        minValue = value.numericValue;
       }
       final value = element.value as NumericHealthValue;
       if (maxValue < value.numericValue) {
         maxValue = value.numericValue;
       }
-
-      data[lastDay - 1] = maxValue.toInt();
+      if (minValue > value.numericValue) {
+        minValue = value.numericValue;
+      }
+      final average = (maxValue + minValue) / 2;
+      data[lastDay - 1] = average.toInt();
     }
     sendPort.send({
       'weight': data,
