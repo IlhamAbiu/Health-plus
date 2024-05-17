@@ -31,21 +31,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(value) => "${value}%";
 
-  static String m5(value) => "${value} кг";
+  static String m5(name) => "Добрый день, ${name}";
 
-  static String m6(value) => "${value} уд/м";
+  static String m6(value) => "${value} кг";
 
-  static String m7(value) => "${value}";
+  static String m7(value) => "${value} уд/м";
 
-  static String m8(value) => "${value} шагов";
+  static String m8(value) => "${value}";
 
-  static String m9(value) => "${value}";
+  static String m9(value) => "${value} шагов";
 
-  static String m10(value) => "${value}%";
+  static String m10(value) => "${value}";
 
-  static String m11(value) => "\n/${value} шаг.";
+  static String m11(value) => "${value}%";
 
-  static String m12(value) => "${value} минут";
+  static String m12(value) => "\n/${value} шаг.";
+
+  static String m13(value) => "${value} минут";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -66,39 +68,64 @@ class MessageLookup extends MessageLookupByLibrary {
         "body_mass": m2,
         "calculation": MessageLookupByLibrary.simpleMessage("Подсчёт"),
         "calories": m3,
+        "cm": MessageLookupByLibrary.simpleMessage("см"),
         "data_not_available":
             MessageLookupByLibrary.simpleMessage("Данные не доступны"),
+        "done": MessageLookupByLibrary.simpleMessage("Готово"),
         "fat_mass": m4,
+        "female": MessageLookupByLibrary.simpleMessage("Женщина"),
         "friday": MessageLookupByLibrary.simpleMessage("Пт"),
+        "get_started": MessageLookupByLibrary.simpleMessage("Начать"),
+        "good_morning": m5,
         "heart_rate": MessageLookupByLibrary.simpleMessage("Пульс"),
+        "height_and_weight": MessageLookupByLibrary.simpleMessage("Рост и вес"),
+        "height_and_weight_description": MessageLookupByLibrary.simpleMessage(
+            "Необходимо, чтобы вы выбрали наиболее приблизительную или точную информацию. Это позволит нам узнать больше о вашем здоровье."),
+        "kg": MessageLookupByLibrary.simpleMessage("кг"),
+        "male": MessageLookupByLibrary.simpleMessage("Мужчина"),
         "max": MessageLookupByLibrary.simpleMessage("Максимум"),
         "measurement_log":
             MessageLookupByLibrary.simpleMessage("Журнал измерений"),
         "min": MessageLookupByLibrary.simpleMessage("Минимум"),
         "monday": MessageLookupByLibrary.simpleMessage("Пн"),
-        "muscle_mass": m5,
+        "muscle_mass": m6,
+        "name": MessageLookupByLibrary.simpleMessage("Имя"),
+        "name_app": MessageLookupByLibrary.simpleMessage("HealthPro"),
+        "next": MessageLookupByLibrary.simpleMessage("Далее"),
         "no_data": MessageLookupByLibrary.simpleMessage("Нет данных"),
         "no_data_today":
             MessageLookupByLibrary.simpleMessage("Нет данных за сегодня"),
+        "percent_body_fat":
+            MessageLookupByLibrary.simpleMessage("Телесный жир"),
         "pulse_throughout_the_day":
             MessageLookupByLibrary.simpleMessage("Пульс в течении дня"),
-        "pulse_value": m6,
+        "pulse_value": m7,
+        "required_field":
+            MessageLookupByLibrary.simpleMessage("Обязательное поле"),
         "saturday": MessageLookupByLibrary.simpleMessage("Сб"),
+        "set_your_birthday": MessageLookupByLibrary.simpleMessage(
+            "Укажите дату своего рождения"),
+        "set_your_gender":
+            MessageLookupByLibrary.simpleMessage("Укажите свой пол"),
         "sleep_indicator":
             MessageLookupByLibrary.simpleMessage("Показатель сна"),
-        "sleep_indicator_value": m7,
+        "sleep_indicator_value": m8,
         "step": MessageLookupByLibrary.simpleMessage("Шаги"),
-        "steps": m8,
-        "steps_to_day_current": m9,
-        "steps_to_day_percent": m10,
-        "steps_to_day_target": m11,
+        "steps": m9,
+        "steps_to_day_current": m10,
+        "steps_to_day_percent": m11,
+        "steps_to_day_target": m12,
         "sunday": MessageLookupByLibrary.simpleMessage("Вс"),
         "thursday": MessageLookupByLibrary.simpleMessage("Чт"),
-        "time": m12,
+        "time": m13,
         "trends": MessageLookupByLibrary.simpleMessage("Тенденции"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Вт"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Ср"),
         "weight": MessageLookupByLibrary.simpleMessage("Вес"),
+        "welcome_message": MessageLookupByLibrary.simpleMessage(
+            "Добро пожаловать в семью HealtPro. Чтобы лучше заботиться о себе, пожалуйста, заполните следующую форму."),
+        "what_is_your_name":
+            MessageLookupByLibrary.simpleMessage("Как вас зовут?"),
         "your_body_composition":
             MessageLookupByLibrary.simpleMessage("Ваш состав тела")
       };

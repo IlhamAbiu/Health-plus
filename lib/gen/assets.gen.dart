@@ -35,6 +35,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/fat_mass.svg
   SvgGenImage get fatMass => const SvgGenImage('assets/svg/fat_mass.svg');
 
+  /// File path: assets/svg/female.svg
+  SvgGenImage get female => const SvgGenImage('assets/svg/female.svg');
+
   /// File path: assets/svg/heart_rate.svg
   SvgGenImage get heartRate => const SvgGenImage('assets/svg/heart_rate.svg');
 
@@ -45,6 +48,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/home_unselected.svg
   SvgGenImage get homeUnselected =>
       const SvgGenImage('assets/svg/home_unselected.svg');
+
+  /// File path: assets/svg/male.svg
+  SvgGenImage get male => const SvgGenImage('assets/svg/male.svg');
 
   /// File path: assets/svg/muscle_mass.svg
   SvgGenImage get muscleMass => const SvgGenImage('assets/svg/muscle_mass.svg');
@@ -87,6 +93,10 @@ class $AssetsSvgGen {
   /// File path: assets/svg/weight.svg
   SvgGenImage get weight => const SvgGenImage('assets/svg/weight.svg');
 
+  /// File path: assets/svg/welcome_image.svg
+  SvgGenImage get welcomeImage =>
+      const SvgGenImage('assets/svg/welcome_image.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         arrowForward,
@@ -95,9 +105,11 @@ class $AssetsSvgGen {
         bodyMass,
         calories,
         fatMass,
+        female,
         heartRate,
         homeSelected,
         homeUnselected,
+        male,
         muscleMass,
         recommendationSelected,
         recommendationUnselected,
@@ -109,7 +121,8 @@ class $AssetsSvgGen {
         step,
         steps,
         time,
-        weight
+        weight,
+        welcomeImage
       ];
 }
 

@@ -70,10 +70,13 @@ class Steps extends StatelessWidget {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const LoadingIndicator();
                   }
+                  int? minValue = findMinOrNull(snapshot.requireData.values
+                      .where((element) => element != null)
+                      .cast<int>());
                   int? maxValue = findMaxOrNull(snapshot.requireData.values
                       .where((value) => value != null)
                       .cast<int>());
-                  const min = 0;
+                  final min = (minValue ?? 0) - (minValue ?? 0) % 1000;
                   final max = (maxValue ?? 0) - (maxValue ?? 0) % 1000 + 1000;
                   return LineChart(
                     duration: Duration.zero,
@@ -107,7 +110,7 @@ class Steps extends StatelessWidget {
                         leftTitles: AxisTitles(
                           drawBelowEverything: true,
                           sideTitles: SideTitles(
-                            interval: 2000,
+                            interval: 1000,
                             reservedSize: 50,
                             showTitles: true,
                             getTitlesWidget: (value, meta) {

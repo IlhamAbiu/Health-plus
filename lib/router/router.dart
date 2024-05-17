@@ -11,6 +11,7 @@ import 'main_screen/pages/recommendation_page/recommendation_page.dart';
 import 'main_screen/pages/statistics_page/statistics_page.dart';
 import 'router_patches.dart';
 import 'steps_screen/steps_screen.dart';
+import 'user_input_form/user_input_form.dart';
 import 'weight_screen/weight_screen.dart';
 
 part 'router.g.dart';
@@ -170,5 +171,16 @@ class BloodOxygenRoute extends GoRouteData {
         context: context,
         state: state,
         child: const BloodOxygenScreen(),
+      );
+}
+
+@TypedGoRoute<UserInputFormRoute>(path: userInputFormPath)
+class UserInputFormRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const UserInputForm(),
       );
 }

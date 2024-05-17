@@ -449,6 +449,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Телесный жир`
+  String get percent_body_fat {
+    return Intl.message(
+      'Телесный жир',
+      name: 'percent_body_fat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HealthPro`
+  String get name_app {
+    return Intl.message(
+      'HealthPro',
+      name: 'name_app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Добро пожаловать в семью HealtPro. Чтобы лучше заботиться о себе, пожалуйста, заполните следующую форму.`
+  String get welcome_message {
+    return Intl.message(
+      'Добро пожаловать в семью HealtPro. Чтобы лучше заботиться о себе, пожалуйста, заполните следующую форму.',
+      name: 'welcome_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Начать`
+  String get get_started {
+    return Intl.message(
+      'Начать',
+      name: 'get_started',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Как вас зовут?`
+  String get what_is_your_name {
+    return Intl.message(
+      'Как вас зовут?',
+      name: 'what_is_your_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Имя`
+  String get name {
+    return Intl.message(
+      'Имя',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Далее`
+  String get next {
+    return Intl.message(
+      'Далее',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Обязательное поле`
+  String get required_field {
+    return Intl.message(
+      'Обязательное поле',
+      name: 'required_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Женщина`
+  String get female {
+    return Intl.message(
+      'Женщина',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Мужчина`
+  String get male {
+    return Intl.message(
+      'Мужчина',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Укажите свой пол`
+  String get set_your_gender {
+    return Intl.message(
+      'Укажите свой пол',
+      name: 'set_your_gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Укажите дату своего рождения`
+  String get set_your_birthday {
+    return Intl.message(
+      'Укажите дату своего рождения',
+      name: 'set_your_birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `см`
+  String get cm {
+    return Intl.message(
+      'см',
+      name: 'cm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `кг`
+  String get kg {
+    return Intl.message(
+      'кг',
+      name: 'kg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Рост и вес`
+  String get height_and_weight {
+    return Intl.message(
+      'Рост и вес',
+      name: 'height_and_weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Необходимо, чтобы вы выбрали наиболее приблизительную или точную информацию. Это позволит нам узнать больше о вашем здоровье.`
+  String get height_and_weight_description {
+    return Intl.message(
+      'Необходимо, чтобы вы выбрали наиболее приблизительную или точную информацию. Это позволит нам узнать больше о вашем здоровье.',
+      name: 'height_and_weight_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Готово`
+  String get done {
+    return Intl.message(
+      'Готово',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Добрый день, {name}`
+  String good_morning(String name) {
+    return Intl.message(
+      'Добрый день, $name',
+      name: 'good_morning',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

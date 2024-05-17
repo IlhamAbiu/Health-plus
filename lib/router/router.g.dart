@@ -17,6 +17,7 @@ List<RouteBase> get $appRoutes => [
       $stepsRoute,
       $weightRoute,
       $bloodOxygenRoute,
+      $userInputFormRoute,
     ];
 
 RouteBase get $mainRoute => ShellRouteData.$route(
@@ -229,6 +230,29 @@ extension $BloodOxygenRouteExtension on BloodOxygenRoute {
 
   String get location => GoRouteData.$location(
         '/blood_oxygen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $userInputFormRoute => GoRouteData.$route(
+      path: '/user_input_form',
+      factory: $UserInputFormRouteExtension._fromState,
+    );
+
+extension $UserInputFormRouteExtension on UserInputFormRoute {
+  static UserInputFormRoute _fromState(GoRouterState state) =>
+      UserInputFormRoute();
+
+  String get location => GoRouteData.$location(
+        '/user_input_form',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -26,6 +26,8 @@ class AppLoadingScreen extends StatelessWidget {
             HomeRoute().go(context);
           } else if (state == AppLoadingState.SDKNotAvailable) {
             AppAuthorizationRoute().go(context);
+          } else if (state == AppLoadingState.userNotFound) {
+            AppAuthorizationRoute().go(context);
           }
         },
       ),

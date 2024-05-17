@@ -1,0 +1,66 @@
+import 'dart:async';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_plus/domain/user/user.dart';
+import 'package:health_plus/domain/user/user_repository.dart';
+
+enum UserInputState {
+  initial,
+  waiting,
+  success,
+}
+
+class UserInputCubit extends Cubit<UserInputState> {
+  UserInputCubit() : super(UserInputState.initial);
+
+  String? _name;
+  String? get name => _name;
+  set name(String? name) {
+    _name = name;
+  }
+
+  Gender? _gender;
+  Gender? get gender => _gender;
+  set gender(Gender? gender) {
+    _gender = gender;
+  }
+
+  DateTime? _birthday;
+  DateTime? get birthday => _birthday;
+  set birthday(DateTime? birthday) {
+    _birthday = birthday;
+  }
+
+  int? _height;
+  int? get height => _height;
+  set height(int? height) {
+    _height = height;
+  }
+
+  double? _weight;
+  double? get weight => _weight;
+  set weight(double? weight) {
+    _weight = weight;
+  }
+
+  Future<void> createUser() async {
+    if (name == null ||
+        gender == null ||
+        birthday == null ||
+        height == null ||
+        weight == null) {
+      emit(UserInputState.initial);
+      return;
+    }
+    emit(UserInputState.waiting);
+    final user = User(
+      name: name!,
+      birthday: birthday!,
+      gender: gender!,
+      height: height!,
+      weight: weight!,
+    );
+    await UserRepository().saveUser(user);
+    emit(UserInputState.success);
+  }
+}

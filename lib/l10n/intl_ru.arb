@@ -132,5 +132,30 @@
     "blood_oxygen" : "Кислород в крови",
     "heart_rate" : "Пульс",
     "average_pulse_throughout_the_day" : "Средний пульс в течении дня",
-    "average_value_throughout_the_day" : "Среднее значение в течении дня"
+    "average_value_throughout_the_day" : "Среднее значение в течении дня",
+    "percent_body_fat" : "Телесный жир",
+    "name_app" : "HealthPro",
+    "welcome_message" : "Добро пожаловать в семью HealtPro. Чтобы лучше заботиться о себе, пожалуйста, заполните следующую форму.",
+    "get_started" : "Начать",
+    "what_is_your_name" : "Как вас зовут?",
+    "name" : "Имя",
+    "next" : "Далее",
+    "required_field" : "Обязательное поле",
+    "female" : "Женщина",
+    "male" : "Мужчина",
+    "set_your_gender" : "Укажите свой пол",
+    "set_your_birthday" : "Укажите дату своего рождения",
+    "cm" : "см",
+    "kg" : "кг",
+    "height_and_weight" : "Рост и вес",
+    "height_and_weight_description" : "Необходимо, чтобы вы выбрали наиболее приблизительную или точную информацию. Это позволит нам узнать больше о вашем здоровье.",
+    "done" : "Готово",
+    "good_morning" : "Добрый день, {name}",
+    "@good_morning" : {
+        "placeholders" : {
+            "name" : {
+                "type" : "String"
+            }
+        }
+    }
  }
