@@ -77,7 +77,9 @@ class Steps extends StatelessWidget {
                       .where((value) => value != null)
                       .cast<int>());
                   final min = (minValue ?? 0) - (minValue ?? 0) % 1000;
-                  final max = (maxValue ?? 0) - (maxValue ?? 0) % 1000 + 1000;
+                  final interval =
+                      calculateStepInterval(minValue ?? 0, maxValue ?? 0);
+                  final max = min + interval * 6;
                   return LineChart(
                     duration: Duration.zero,
                     LineChartData(
@@ -85,7 +87,7 @@ class Steps extends StatelessWidget {
                       minX: 0,
                       maxX: 6,
                       minY: min.toDouble(),
-                      maxY: max.toDouble(),
+                      maxY: interval == 0 ? 1000 : max.toDouble(),
                       borderData: FlBorderData(show: false),
                       lineBarsData: [
                         LineChartBarData(
@@ -110,7 +112,8 @@ class Steps extends StatelessWidget {
                         leftTitles: AxisTitles(
                           drawBelowEverything: true,
                           sideTitles: SideTitles(
-                            interval: 1000,
+                            interval:
+                                interval == 0 ? 1000 : interval.toDouble(),
                             reservedSize: 50,
                             showTitles: true,
                             getTitlesWidget: (value, meta) {
@@ -185,6 +188,15 @@ class Steps extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  int calculateStepInterval(int minValue, int maxValue) {
+    maxValue = ((maxValue + 999) ~/ 1000) * 1000;
+    int step = (maxValue - minValue) ~/ 6;
+    if (step % 1000 != 0) {
+      step = ((step + 999) ~/ 1000) * 1000;
+    }
+    return step;
   }
 
   int? findMaxOrNull(Iterable<int?> iterable) {

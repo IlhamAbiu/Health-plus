@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health/health.dart';
+import 'package:health_plus/domain/services/health_service/health_service.dart';
 import 'package:health_plus/domain/user/user.dart';
 import 'package:health_plus/domain/user/user_repository.dart';
 
@@ -59,6 +61,14 @@ class UserInputCubit extends Cubit<UserInputState> {
       gender: gender!,
       height: height!,
       weight: weight!,
+    );
+    await HealthService().writeData(
+      type: HealthDataType.WEIGHT,
+      value: user.weight,
+    );
+    await HealthService().writeData(
+      type: HealthDataType.HEIGHT,
+      value: user.height / 100,
     );
     await UserRepository().saveUser(user);
     emit(UserInputState.success);

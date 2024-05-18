@@ -108,4 +108,18 @@ class HealthService {
       rethrow;
     }
   }
+
+  Future<void> writeData({
+    required dynamic value,
+    required HealthDataType type,
+  }) async {
+    final now = DateTime.now();
+    final earlier = now.subtract(const Duration(minutes: 1));
+    await Health().writeHealthData(
+      value: value,
+      type: type,
+      startTime: earlier,
+      endTime: now,
+    );
+  }
 }
