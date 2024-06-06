@@ -22,7 +22,7 @@ class BloodOxygen extends StatelessWidget {
         ),
         constraints: const BoxConstraints(maxWidth: 330),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(

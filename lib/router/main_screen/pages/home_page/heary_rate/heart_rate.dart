@@ -11,6 +11,8 @@ import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
+import 'resting_pulse_builder/resting_pulse_builder.dart';
+
 class HeartRate extends StatelessWidget {
   const HeartRate({super.key});
 
@@ -25,7 +27,7 @@ class HeartRate extends StatelessWidget {
         ),
         constraints: const BoxConstraints(maxWidth: 330),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
@@ -70,83 +72,97 @@ class HeartRate extends StatelessWidget {
                   future: _fetchDataToDay(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Row(
+                      return Column(
                         children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Text(
-                                  S().average,
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: const Color(0xFF88888A),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      S().average,
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: const Color(0xFF88888A),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                      S().pulse_value(
+                                          snapshot.data![0].toInt()),
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  S().pulse_value(snapshot.data![0].toInt()),
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      S().max,
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: const Color(0xFF88888A),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                      S().pulse_value(
+                                          snapshot.data![1].toInt()),
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      S().min,
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: const Color(0xFF88888A),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                      S().pulse_value(
+                                          snapshot.data![2].toInt()),
+                                      style: TextStyle(
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily,
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Text(
-                                  S().max,
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: const Color(0xFF88888A),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  S().pulse_value(snapshot.data![1].toInt()),
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Text(
-                                  S().min,
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: const Color(0xFF88888A),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  S().pulse_value(snapshot.data![2].toInt()),
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          const RestingPulseBuilder(),
                         ],
                       );
                     } else {

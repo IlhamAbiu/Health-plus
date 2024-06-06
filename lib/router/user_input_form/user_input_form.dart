@@ -93,7 +93,6 @@ class _UserInputFormState extends State<UserInputForm> {
               }
             },
             listener: (context, state) {
-              print(state);
               if (state == UserInputState.success) {
                 HomeRoute().go(context);
               }

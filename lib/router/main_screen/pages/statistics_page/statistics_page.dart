@@ -46,7 +46,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
+          color: Theme.of(context).cardColor,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(

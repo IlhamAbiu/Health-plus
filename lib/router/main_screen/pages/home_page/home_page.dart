@@ -8,10 +8,10 @@ import 'package:health_plus/ui/components/loading_indicator.dart';
 
 import 'activity_rings.dart';
 import 'blood_oxygen.dart';
-import 'blood_pressure.dart';
+import 'blood_pressure/blood_pressure.dart';
 import 'body_composition.dart';
-import 'heart_rate.dart';
-import 'sleep_session.dart';
+import 'heary_rate/heart_rate.dart';
+import 'sleep_session/sleep_session.dart';
 import 'steps.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).cardColor,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(

@@ -21,34 +21,34 @@ class HealthCubit extends Cubit<HealthState> {
 
   Future<void> fetchData() async {
     try {
-      oxygenDataList = await HealthService().fetchData(
+      oxygenDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.BLOOD_OXYGEN],
       );
-      diastolicDataList = await HealthService().fetchData(
+      diastolicDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.BLOOD_PRESSURE_DIASTOLIC],
       );
-      systolicDataList = await HealthService().fetchData(
+      systolicDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.BLOOD_PRESSURE_SYSTOLIC],
       );
-      sleepSessionDataList = await HealthService().fetchData(
+      sleepSessionDataList = await HealthService().fetchDataAfter2days(
         types: [HealthDataType.SLEEP_SESSION],
       );
-      heartRateDataList = await HealthService().fetchData(
+      heartRateDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.HEART_RATE],
       );
       bodyMassDataList = await HealthService().fetchData(
         types: [HealthDataType.WEIGHT],
       );
-      bodyFatPercentageDataList = await HealthService().fetchData(
+      bodyFatPercentageDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.BODY_FAT_PERCENTAGE],
       );
       stepsDataList = await HealthService().fetchData(
         types: [HealthDataType.STEPS],
       );
-      totalCaloriesBurnedDataList = await HealthService().fetchData(
+      totalCaloriesBurnedDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.TOTAL_CALORIES_BURNED],
       );
-      workoutDataList = await HealthService().fetchData(
+      workoutDataList = await HealthService().fetchDataAfterToDay(
         types: [HealthDataType.WORKOUT],
       );
       emit(
