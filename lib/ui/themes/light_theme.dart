@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 final lightTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFFFAFAFF),
   cardColor: Colors.white,
+  shadowColor: const Color(0xFFEDEEFB).withOpacity(0.8),
   colorScheme: ColorScheme(
     surface: const Color(0xFFFAFAFF),
     shadow: const Color(0xFFEDEEFB).withOpacity(0.8),

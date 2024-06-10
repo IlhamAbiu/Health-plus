@@ -7,7 +7,9 @@ part 'user.g.dart';
 
 enum Gender { male, female }
 
-@freezed
+enum ActivityLevel { veryLow, low, medium, high, veryHigh }
+
+@unfreezed
 class User with _$User {
   @JsonSerializable(explicitToJson: true)
   factory User({
@@ -16,6 +18,7 @@ class User with _$User {
     required Gender gender,
     required int height,
     required double weight,
+    required ActivityLevel activityLevel,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

@@ -6,8 +6,6 @@ import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
 import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 
-import 'blood_pressure_builder/blood_pressure_builder.dart';
-
 class BloodPressure extends StatelessWidget {
   const BloodPressure({super.key});
 
@@ -77,9 +75,6 @@ class BloodPressure extends StatelessWidget {
                     color: const Color(0xFF88888A),
                   ),
                 ),
-                diastolic != null && systolic != null
-                    ? const BloodPressureBuilder()
-                    : const SizedBox()
               ],
             );
           },

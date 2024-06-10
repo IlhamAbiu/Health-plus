@@ -51,6 +51,29 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "activity": MessageLookupByLibrary.simpleMessage("Активность"),
+        "activity_level_high_description": MessageLookupByLibrary.simpleMessage(
+            "Интенсивные тренировки или физическая работа 6-7 раз в неделю."),
+        "activity_level_high_title":
+            MessageLookupByLibrary.simpleMessage("Высокая активность"),
+        "activity_level_low_description": MessageLookupByLibrary.simpleMessage(
+            "Небольшая физическая активность, например, прогулки или легкие упражнения 1-3 раза в неделю"),
+        "activity_level_low_title":
+            MessageLookupByLibrary.simpleMessage("Легкая активность"),
+        "activity_level_medium_description": MessageLookupByLibrary.simpleMessage(
+            "Регулярные физические упражнения средней интенсивности 3-5 раз в неделю."),
+        "activity_level_medium_title":
+            MessageLookupByLibrary.simpleMessage("Умеренная активность"),
+        "activity_level_very_high_description":
+            MessageLookupByLibrary.simpleMessage(
+                "Ежедневные интенсивные тренировки и/или тяжелая физическая работа."),
+        "activity_level_very_high_title":
+            MessageLookupByLibrary.simpleMessage("Очень высокая активность"),
+        "activity_level_very_low_description": MessageLookupByLibrary.simpleMessage(
+            "Минимальная активность, в основном сидячая работа и отсутствие регулярных тренировок."),
+        "activity_level_very_low_title":
+            MessageLookupByLibrary.simpleMessage("Сидячий образ жизни"),
+        "apply": MessageLookupByLibrary.simpleMessage("Применить"),
         "average": MessageLookupByLibrary.simpleMessage("Средний"),
         "average_pulse_throughout_the_day":
             MessageLookupByLibrary.simpleMessage("Средний пульс в течении дня"),
@@ -68,6 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "body_mass": m2,
         "calculation": MessageLookupByLibrary.simpleMessage("Подсчёт"),
         "calories": m3,
+        "change_activity_level":
+            MessageLookupByLibrary.simpleMessage("Изменить уровень активности"),
+        "change_height": MessageLookupByLibrary.simpleMessage("Изменить рост"),
         "cm": MessageLookupByLibrary.simpleMessage("см"),
         "data_not_available":
             MessageLookupByLibrary.simpleMessage("Данные не доступны"),
@@ -82,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "height_and_weight_description": MessageLookupByLibrary.simpleMessage(
             "Необходимо, чтобы вы выбрали наиболее приблизительную или точную информацию. Это позволит нам узнать больше о вашем здоровье."),
         "kg": MessageLookupByLibrary.simpleMessage("кг"),
+        "life_indicators":
+            MessageLookupByLibrary.simpleMessage("Жизненные показатели"),
         "male": MessageLookupByLibrary.simpleMessage("Мужчина"),
         "max": MessageLookupByLibrary.simpleMessage("Максимум"),
         "measurement_log":
@@ -100,13 +128,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "pulse_throughout_the_day":
             MessageLookupByLibrary.simpleMessage("Пульс в течении дня"),
         "pulse_value": m7,
+        "recommendations": MessageLookupByLibrary.simpleMessage("Рекомендации"),
         "required_field":
             MessageLookupByLibrary.simpleMessage("Обязательное поле"),
         "saturday": MessageLookupByLibrary.simpleMessage("Сб"),
+        "set_your_activity_level": MessageLookupByLibrary.simpleMessage(
+            "Укажите уровень своей активности"),
+        "set_your_activity_level_description": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста, укажите свой уровень физической активности. Это поможет нам предоставить вам более точные и персонализированные рекомендации для улучшения вашего здоровья."),
         "set_your_birthday": MessageLookupByLibrary.simpleMessage(
             "Укажите дату своего рождения"),
         "set_your_gender":
             MessageLookupByLibrary.simpleMessage("Укажите свой пол"),
+        "sleep": MessageLookupByLibrary.simpleMessage("Сон"),
         "sleep_indicator":
             MessageLookupByLibrary.simpleMessage("Показатель сна"),
         "sleep_indicator_value": m8,

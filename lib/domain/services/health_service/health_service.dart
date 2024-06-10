@@ -44,6 +44,28 @@ class HealthService {
   }
 
   Future<List<HealthDataPoint>> fetchData({
+    required DateTime startTime,
+    required DateTime endTime,
+    required List<HealthDataType> types,
+  }) async {
+    try {
+      List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
+        types: types,
+        startTime: startTime,
+        endTime: endTime,
+      );
+      final List<HealthDataPoint> healthDataList = [];
+      healthDataList.addAll(Health().removeDuplicates(healthData));
+      for (var element in healthDataList) {
+        log('fetched data: ${json.encode(element.toJson())}');
+      }
+      return healthDataList;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<List<HealthDataPoint>> fetchDataAfter30days({
     required List<HealthDataType> types,
   }) async {
     final now = DateTime.now();

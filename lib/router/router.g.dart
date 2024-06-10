@@ -18,6 +18,9 @@ List<RouteBase> get $appRoutes => [
       $weightRoute,
       $bloodOxygenRoute,
       $userInputFormRoute,
+      $profileRoute,
+      $changeActivityLevelRoute,
+      $changeHeightRoute,
     ];
 
 RouteBase get $mainRoute => ShellRouteData.$route(
@@ -253,6 +256,74 @@ extension $UserInputFormRouteExtension on UserInputFormRoute {
 
   String get location => GoRouteData.$location(
         '/user_input_form',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $profileRoute => GoRouteData.$route(
+      path: '/profile',
+      factory: $ProfileRouteExtension._fromState,
+    );
+
+extension $ProfileRouteExtension on ProfileRoute {
+  static ProfileRoute _fromState(GoRouterState state) => ProfileRoute();
+
+  String get location => GoRouteData.$location(
+        '/profile',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $changeActivityLevelRoute => GoRouteData.$route(
+      path: '/change_activity_level',
+      factory: $ChangeActivityLevelRouteExtension._fromState,
+    );
+
+extension $ChangeActivityLevelRouteExtension on ChangeActivityLevelRoute {
+  static ChangeActivityLevelRoute _fromState(GoRouterState state) =>
+      ChangeActivityLevelRoute();
+
+  String get location => GoRouteData.$location(
+        '/change_activity_level',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $changeHeightRoute => GoRouteData.$route(
+      path: '/change_height',
+      factory: $ChangeHeightRouteExtension._fromState,
+    );
+
+extension $ChangeHeightRouteExtension on ChangeHeightRoute {
+  static ChangeHeightRoute _fromState(GoRouterState state) =>
+      ChangeHeightRoute();
+
+  String get location => GoRouteData.$location(
+        '/change_height',
       );
 
   void go(BuildContext context) => context.go(location);

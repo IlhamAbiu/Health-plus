@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health_plus/domain/user/user_repository.dart';
 import 'package:health_plus/generated/l10n.dart';
+import 'package:health_plus/router/router.dart';
 
 import 'components/nav_bar/nav_bar.dart';
 
@@ -29,6 +30,21 @@ class MainScreen extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 17.22),
+            child: GestureDetector(
+              onTap: () {
+                ProfileRoute().push(context);
+              },
+              child: Icon(
+                Icons.account_circle_outlined,
+                color: Theme.of(context).colorScheme.onSurface,
+                size: 40,
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: const NavBar(),
     );

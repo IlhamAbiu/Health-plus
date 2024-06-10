@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health/health.dart';
 import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
+import 'package:health_plus/features/sleep_metrics/models/sleep_metrics_models.dart';
 
 import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 
-import 'sleep_metrics/sleep_metrics_builder.dart';
+import 'sleep_metrics_cubit.dart';
 
 class SleepSession extends StatelessWidget {
   const SleepSession({super.key});
@@ -53,113 +54,102 @@ class SleepSession extends StatelessWidget {
               sleepDuration = sleepSessionValue.numericValue;
             }
 
-            return Column(
+            return Row(
               children: [
-                Row(
-                  children: [
-                    Flexible(
-                      child: Column(
-                        children: [
-                          sleepSessionData == null
-                              ? Text(
-                                  S().no_data,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                )
-                              : Text(
-                                  // S().sleep_indicator_value(95),
-                                  '??',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                          const SizedBox(height: 10),
-                          Text(
-                            S().sleep_indicator,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: GoogleFonts.roboto().fontFamily,
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              color: const Color(0xFF88888A),
-                            ),
-                          ),
-                        ],
+                Flexible(
+                  child: Column(
+                    children: [
+                      BlocProvider(
+                        lazy: false,
+                        create: (_) => SleepMetricsCubit(),
+                        child:
+                            BlocBuilder<SleepMetricsCubit, SleepMetricsModels?>(
+                          builder: (context, state) {
+                            return Text(
+                              state?.sleep_score == null
+                                  ? S().no_data
+                                  : '${state?.sleep_score.round()}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: GoogleFonts.roboto().fontFamily,
+                                fontSize: state?.sleep_score == null ? 20 : 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    Flexible(
-                      child: sleepSessionData == null
-                          ? const SizedBox()
-                          : Column(
+                      const SizedBox(height: 10),
+                      Text(
+                        S().sleep_indicator,
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: GoogleFonts.roboto().fontFamily,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF88888A),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Flexible(
+                  child: sleepSessionData == null
+                      ? const SizedBox()
+                      : Column(
+                          children: [
+                            Row(
                               children: [
-                                Row(
-                                  children: [
-                                    Assets.svg.sleepFrom.svg(),
-                                    const SizedBox(width: 11),
-                                    Text(
-                                      _dateTimeToTime(sleepFrom),
-                                      style: TextStyle(
-                                        fontFamily:
-                                            GoogleFonts.roboto().fontFamily,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xFFA5A5A7),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Assets.svg.sleepTo.svg(),
-                                    const SizedBox(width: 11),
-                                    Text(
-                                      _dateTimeToTime(sleepTo),
-                                      style: TextStyle(
-                                        fontFamily:
-                                            GoogleFonts.roboto().fontFamily,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xFFA5A5A7),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Assets.svg.sleepDuration.svg(),
-                                    const SizedBox(width: 11),
-                                    Text(
-                                      _minutesToTime(sleepDuration),
-                                      style: TextStyle(
-                                        fontFamily:
-                                            GoogleFonts.roboto().fontFamily,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xFFA5A5A7),
-                                      ),
-                                    )
-                                  ],
+                                Assets.svg.sleepFrom.svg(),
+                                const SizedBox(width: 11),
+                                Text(
+                                  _dateTimeToTime(sleepFrom),
+                                  style: TextStyle(
+                                    fontFamily: GoogleFonts.roboto().fontFamily,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color(0xFFA5A5A7),
+                                  ),
                                 ),
                               ],
                             ),
-                    ),
-                  ],
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Assets.svg.sleepTo.svg(),
+                                const SizedBox(width: 11),
+                                Text(
+                                  _dateTimeToTime(sleepTo),
+                                  style: TextStyle(
+                                    fontFamily: GoogleFonts.roboto().fontFamily,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color(0xFFA5A5A7),
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Assets.svg.sleepDuration.svg(),
+                                const SizedBox(width: 11),
+                                Text(
+                                  _minutesToTime(sleepDuration),
+                                  style: TextStyle(
+                                    fontFamily: GoogleFonts.roboto().fontFamily,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color(0xFFA5A5A7),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                 ),
-                sleepSessionData == null
-                    ? const SizedBox()
-                    : const SleepMetricsBuilder(),
               ],
             );
           },

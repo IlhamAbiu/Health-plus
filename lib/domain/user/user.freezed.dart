@@ -21,10 +21,17 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get name => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   DateTime get birthday => throw _privateConstructorUsedError;
+  set birthday(DateTime value) => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
+  set gender(Gender value) => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
+  set height(int value) => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
+  set weight(double value) => throw _privateConstructorUsedError;
+  ActivityLevel get activityLevel => throw _privateConstructorUsedError;
+  set activityLevel(ActivityLevel value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +48,8 @@ abstract class $UserCopyWith<$Res> {
       DateTime birthday,
       Gender gender,
       int height,
-      double weight});
+      double weight,
+      ActivityLevel activityLevel});
 }
 
 /// @nodoc
@@ -62,6 +70,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? gender = null,
     Object? height = null,
     Object? weight = null,
+    Object? activityLevel = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -84,6 +93,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      activityLevel: null == activityLevel
+          ? _value.activityLevel
+          : activityLevel // ignore: cast_nullable_to_non_nullable
+              as ActivityLevel,
     ) as $Val);
   }
 }
@@ -100,7 +113,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       DateTime birthday,
       Gender gender,
       int height,
-      double weight});
+      double weight,
+      ActivityLevel activityLevel});
 }
 
 /// @nodoc
@@ -118,6 +132,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? gender = null,
     Object? height = null,
     Object? weight = null,
+    Object? activityLevel = null,
   }) {
     return _then(_$UserImpl(
       name: null == name
@@ -140,6 +155,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      activityLevel: null == activityLevel
+          ? _value.activityLevel
+          : activityLevel // ignore: cast_nullable_to_non_nullable
+              as ActivityLevel,
     ));
   }
 }
@@ -153,44 +172,29 @@ class _$UserImpl implements _User {
       required this.birthday,
       required this.gender,
       required this.height,
-      required this.weight});
+      required this.weight,
+      required this.activityLevel});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
-  final String name;
+  String name;
   @override
-  final DateTime birthday;
+  DateTime birthday;
   @override
-  final Gender gender;
+  Gender gender;
   @override
-  final int height;
+  int height;
   @override
-  final double weight;
+  double weight;
+  @override
+  ActivityLevel activityLevel;
 
   @override
   String toString() {
-    return 'User(name: $name, birthday: $birthday, gender: $gender, height: $height, weight: $weight)';
+    return 'User(name: $name, birthday: $birthday, gender: $gender, height: $height, weight: $weight, activityLevel: $activityLevel)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.birthday, birthday) ||
-                other.birthday == birthday) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.height, height) || other.height == height) &&
-            (identical(other.weight, weight) || other.weight == weight));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, birthday, gender, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -208,24 +212,33 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   factory _User(
-      {required final String name,
-      required final DateTime birthday,
-      required final Gender gender,
-      required final int height,
-      required final double weight}) = _$UserImpl;
+      {required String name,
+      required DateTime birthday,
+      required Gender gender,
+      required int height,
+      required double weight,
+      required ActivityLevel activityLevel}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
   String get name;
+  set name(String value);
   @override
   DateTime get birthday;
+  set birthday(DateTime value);
   @override
   Gender get gender;
+  set gender(Gender value);
   @override
   int get height;
+  set height(int value);
   @override
   double get weight;
+  set weight(double value);
+  @override
+  ActivityLevel get activityLevel;
+  set activityLevel(ActivityLevel value);
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

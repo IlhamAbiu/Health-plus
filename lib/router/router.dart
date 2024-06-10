@@ -4,11 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'app_authorization_screen/app_authorization_screen.dart';
 import 'app_loading_screen/app_loading_screen.dart';
 import 'blood_oxygen_screen/blood_oxygen_screen.dart';
+import 'change_activity_level_screen/change_activity_level_screen.dart';
+import 'change_height_screen/change_height_screen.dart';
 import 'heart_rate_screen/heart_rate_screen.dart';
 import 'main_screen/main_screen.dart';
 import 'main_screen/pages/home_page/home_page.dart';
 import 'main_screen/pages/recommendation_page/recommendation_page.dart';
 import 'main_screen/pages/statistics_page/statistics_page.dart';
+import 'profile_screen/profile_screen.dart';
 import 'router_patches.dart';
 import 'steps_screen/steps_screen.dart';
 import 'user_input_form/user_input_form.dart';
@@ -182,5 +185,38 @@ class UserInputFormRoute extends GoRouteData {
         context: context,
         state: state,
         child: const UserInputForm(),
+      );
+}
+
+@TypedGoRoute<ProfileRoute>(path: profilePath)
+class ProfileRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const ProfileScreen(),
+      );
+}
+
+@TypedGoRoute<ChangeActivityLevelRoute>(path: changeActivityLevelPath)
+class ChangeActivityLevelRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const ChangeActivityLevelScreen(),
+      );
+}
+
+@TypedGoRoute<ChangeHeightRoute>(path: changeHeightPath)
+class ChangeHeightRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const ChangeHeightScreen(),
       );
 }

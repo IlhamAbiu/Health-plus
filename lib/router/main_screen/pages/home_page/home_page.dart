@@ -6,13 +6,13 @@ import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
 import 'package:health_plus/generated/l10n.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
-import 'activity_rings.dart';
+import 'activity_rings/activity_rings.dart';
 import 'blood_oxygen.dart';
 import 'blood_pressure/blood_pressure.dart';
-import 'body_composition.dart';
+import 'body_composition/body_composition.dart';
 import 'heary_rate/heart_rate.dart';
 import 'sleep_session/sleep_session.dart';
-import 'steps.dart';
+import 'steps/steps.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

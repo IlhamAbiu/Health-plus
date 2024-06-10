@@ -45,6 +45,12 @@ class UserInputCubit extends Cubit<UserInputState> {
     _weight = weight;
   }
 
+  ActivityLevel? _activityLevel;
+  ActivityLevel? get activityLevel => _activityLevel;
+  set activityLevel(ActivityLevel? activityLevel) {
+    _activityLevel = activityLevel;
+  }
+
   Future<void> createUser() async {
     if (name == null ||
         gender == null ||
@@ -61,6 +67,7 @@ class UserInputCubit extends Cubit<UserInputState> {
       gender: gender!,
       height: height!,
       weight: weight!,
+      activityLevel: activityLevel!,
     );
     await HealthService().writeData(
       type: HealthDataType.WEIGHT,

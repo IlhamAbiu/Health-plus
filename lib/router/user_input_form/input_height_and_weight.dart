@@ -7,7 +7,7 @@ import 'package:health_plus/ui/components/primary_button.dart';
 
 import 'height_picker.dart';
 import 'input_page.dart';
-import 'weight_picker.dart';
+import '../../ui/components/weight_picker.dart';
 
 class InputHeightAndWeight extends StatelessWidget implements InputPage {
   const InputHeightAndWeight({super.key, required this.onNext});

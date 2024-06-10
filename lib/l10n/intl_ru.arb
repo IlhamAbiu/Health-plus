@@ -157,5 +157,24 @@
                 "type" : "String"
             }
         }
-    }
+    },
+    "set_your_activity_level" : "Укажите уровень своей активности",
+    "set_your_activity_level_description" : "Пожалуйста, укажите свой уровень физической активности. Это поможет нам предоставить вам более точные и персонализированные рекомендации для улучшения вашего здоровья.",
+    "activity_level_very_low_title" : "Сидячий образ жизни",
+    "activity_level_very_low_description" : "Минимальная активность, в основном сидячая работа и отсутствие регулярных тренировок.",
+    "activity_level_low_title" : "Легкая активность",
+    "activity_level_low_description" : "Небольшая физическая активность, например, прогулки или легкие упражнения 1-3 раза в неделю",
+    "activity_level_medium_title" : "Умеренная активность",
+    "activity_level_medium_description" : "Регулярные физические упражнения средней интенсивности 3-5 раз в неделю.",
+    "activity_level_high_title" : "Высокая активность",
+    "activity_level_high_description" : "Интенсивные тренировки или физическая работа 6-7 раз в неделю.",
+    "activity_level_very_high_title" : "Очень высокая активность",
+    "activity_level_very_high_description" : "Ежедневные интенсивные тренировки и/или тяжелая физическая работа.",
+    "change_height" : "Изменить рост",
+    "change_activity_level" : "Изменить уровень активности",
+    "apply" : "Применить",
+    "recommendations" : "Рекомендации",
+    "activity" : "Активность",
+    "life_indicators" : "Жизненные показатели",
+    "sleep" : "Сон"
  }

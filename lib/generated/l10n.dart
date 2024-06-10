@@ -629,6 +629,196 @@ class S {
       args: [name],
     );
   }
+
+  /// `Укажите уровень своей активности`
+  String get set_your_activity_level {
+    return Intl.message(
+      'Укажите уровень своей активности',
+      name: 'set_your_activity_level',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пожалуйста, укажите свой уровень физической активности. Это поможет нам предоставить вам более точные и персонализированные рекомендации для улучшения вашего здоровья.`
+  String get set_your_activity_level_description {
+    return Intl.message(
+      'Пожалуйста, укажите свой уровень физической активности. Это поможет нам предоставить вам более точные и персонализированные рекомендации для улучшения вашего здоровья.',
+      name: 'set_your_activity_level_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сидячий образ жизни`
+  String get activity_level_very_low_title {
+    return Intl.message(
+      'Сидячий образ жизни',
+      name: 'activity_level_very_low_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Минимальная активность, в основном сидячая работа и отсутствие регулярных тренировок.`
+  String get activity_level_very_low_description {
+    return Intl.message(
+      'Минимальная активность, в основном сидячая работа и отсутствие регулярных тренировок.',
+      name: 'activity_level_very_low_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Легкая активность`
+  String get activity_level_low_title {
+    return Intl.message(
+      'Легкая активность',
+      name: 'activity_level_low_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Небольшая физическая активность, например, прогулки или легкие упражнения 1-3 раза в неделю`
+  String get activity_level_low_description {
+    return Intl.message(
+      'Небольшая физическая активность, например, прогулки или легкие упражнения 1-3 раза в неделю',
+      name: 'activity_level_low_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Умеренная активность`
+  String get activity_level_medium_title {
+    return Intl.message(
+      'Умеренная активность',
+      name: 'activity_level_medium_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Регулярные физические упражнения средней интенсивности 3-5 раз в неделю.`
+  String get activity_level_medium_description {
+    return Intl.message(
+      'Регулярные физические упражнения средней интенсивности 3-5 раз в неделю.',
+      name: 'activity_level_medium_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Высокая активность`
+  String get activity_level_high_title {
+    return Intl.message(
+      'Высокая активность',
+      name: 'activity_level_high_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Интенсивные тренировки или физическая работа 6-7 раз в неделю.`
+  String get activity_level_high_description {
+    return Intl.message(
+      'Интенсивные тренировки или физическая работа 6-7 раз в неделю.',
+      name: 'activity_level_high_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Очень высокая активность`
+  String get activity_level_very_high_title {
+    return Intl.message(
+      'Очень высокая активность',
+      name: 'activity_level_very_high_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ежедневные интенсивные тренировки и/или тяжелая физическая работа.`
+  String get activity_level_very_high_description {
+    return Intl.message(
+      'Ежедневные интенсивные тренировки и/или тяжелая физическая работа.',
+      name: 'activity_level_very_high_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Изменить рост`
+  String get change_height {
+    return Intl.message(
+      'Изменить рост',
+      name: 'change_height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Изменить уровень активности`
+  String get change_activity_level {
+    return Intl.message(
+      'Изменить уровень активности',
+      name: 'change_activity_level',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Применить`
+  String get apply {
+    return Intl.message(
+      'Применить',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Рекомендации`
+  String get recommendations {
+    return Intl.message(
+      'Рекомендации',
+      name: 'recommendations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Активность`
+  String get activity {
+    return Intl.message(
+      'Активность',
+      name: 'activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Жизненные показатели`
+  String get life_indicators {
+    return Intl.message(
+      'Жизненные показатели',
+      name: 'life_indicators',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сон`
+  String get sleep {
+    return Intl.message(
+      'Сон',
+      name: 'sleep',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

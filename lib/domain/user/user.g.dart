@@ -12,6 +12,7 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       gender: $enumDecode(_$GenderEnumMap, json['gender']),
       height: (json['height'] as num).toInt(),
       weight: (json['weight'] as num).toDouble(),
+      activityLevel: $enumDecode(_$ActivityLevelEnumMap, json['activityLevel']),
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -21,9 +22,18 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'gender': _$GenderEnumMap[instance.gender]!,
       'height': instance.height,
       'weight': instance.weight,
+      'activityLevel': _$ActivityLevelEnumMap[instance.activityLevel]!,
     };
 
 const _$GenderEnumMap = {
   Gender.male: 'male',
   Gender.female: 'female',
+};
+
+const _$ActivityLevelEnumMap = {
+  ActivityLevel.veryLow: 'veryLow',
+  ActivityLevel.low: 'low',
+  ActivityLevel.medium: 'medium',
+  ActivityLevel.high: 'high',
+  ActivityLevel.veryHigh: 'veryHigh',
 };

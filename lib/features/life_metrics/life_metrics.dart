@@ -2,28 +2,30 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:health/health.dart';
+import 'package:health_plus/domain/services/calculate_service/models/resting_pulse_response/resting_pulse_response.dart';
 import 'package:health_plus/domain/services/health_service/health_service.dart';
 
 import '../../domain/services/calculate_service/calculate_service.dart';
-import '../resting_pulse/models/resting_pulse_model.dart';
 import '../resting_pulse/resting_pulse.dart';
-import 'models/life_metrics_model.dart';
+import '../../domain/services/calculate_service/models/life_metrics_request/life_metrics_request.dart';
+import '../../domain/services/calculate_service/models/life_metrics_response/life_metrics_response.dart';
 
 class LifeMetrics {
   LifeMetrics._() {
     RestingPulse().stream.listen((event) {
       _updateData(event);
     });
+    _updateData(RestingPulse().lastRestingPulse);
   }
   static LifeMetrics? _instance;
   factory LifeMetrics() => _instance ??= LifeMetrics._();
 
-  final _stream = StreamController<LifeMetricsModel?>.broadcast();
-  Stream<LifeMetricsModel?> get stream => _stream.stream;
-  LifeMetricsModel? _lastLifeMetrics;
-  LifeMetricsModel? get lastLifeMetrics => _lastLifeMetrics;
+  final _stream = StreamController<LifeMetricsResponse?>.broadcast();
+  Stream<LifeMetricsResponse?> get stream => _stream.stream;
+  LifeMetricsResponse? _lastLifeMetrics;
+  LifeMetricsResponse? get lastLifeMetrics => _lastLifeMetrics;
 
-  Future<void> _updateData(RestingPulseModel? restingPulse) async {
+  Future<void> _updateData(RestingPulseResponse? restingPulse) async {
     final int restingHeartRate = restingPulse?.resting_pulse ?? 0;
     int systolicPressure = 0;
     int diastolicPressure = 0;
@@ -80,14 +82,15 @@ class LifeMetrics {
     }
 
     try {
-      final result = await CalculateService.calculateLifeMetrics(
-        systolicPressure: systolicPressure,
-        diastolicPressure: diastolicPressure,
-        restingHeartRate: restingHeartRate,
-        maxHeartRate: maxHeartRate,
-        oxygenLevel: oxygenLevel,
+      final request = LifeMetricsRequest(
+        systolic_pressure: systolicPressure,
+        diastolic_pressure: diastolicPressure,
+        resting_heart_rate: restingHeartRate,
+        max_heart_rate: maxHeartRate,
+        oxygen_levels: oxygenLevel,
       );
-      _lastLifeMetrics = LifeMetricsModel.fromJson(result);
+
+      _lastLifeMetrics = await CalculateService.calculateLifeMetrics(request);
       _stream.add(_lastLifeMetrics);
     } catch (e) {
       log('Error calculating life metrics', error: e);

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_plus/router/router.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
+import 'input_activity_level/input_activity_level.dart';
 import 'input_birthday.dart';
 import 'input_gender/input_gender.dart';
 import 'input_height_and_weight.dart';
@@ -24,7 +25,8 @@ class _UserInputFormState extends State<UserInputForm> {
         InputName(onNext: nextPage),
         InputGender(onNext: nextPage),
         InputBirthday(onNext: nextPage),
-        InputHeightAndWeight(onNext: done),
+        InputHeightAndWeight(onNext: nextPage),
+        InputActivityLevel(onNext: done)
       ];
 
   void nextPage({BuildContext? context}) {
@@ -41,7 +43,6 @@ class _UserInputFormState extends State<UserInputForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
       body: BlocProvider(
         create: (_) => UserInputCubit(),
         child: SafeArea(

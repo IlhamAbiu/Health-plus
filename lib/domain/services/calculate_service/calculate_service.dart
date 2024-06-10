@@ -1,31 +1,27 @@
-import 'package:health/health.dart';
 import 'package:health_plus/core/network.dart';
+
+import 'models/health_metrics_request/health_metrics_request.dart';
+import 'models/health_metrics_response/health_metrics_response.dart';
+import 'models/life_metrics_request/life_metrics_request.dart';
+import 'models/life_metrics_response/life_metrics_response.dart';
+import 'models/resting_pulse_request/resting_pulse_request.dart';
+import 'models/resting_pulse_response/resting_pulse_response.dart';
+import 'models/step_trends_request/step_trends_request.dart';
+import 'models/step_trends_response/step_trends_response.dart';
 
 abstract class CalculateService {
   CalculateService._();
 
-  static const url = 'http://168.119.250.139:8000';
+  static const _url = 'http://168.119.250.139:8000';
 
-  static void calculateHealthMetrics({
-    required double weight,
-    required double height,
-  }) async {}
-
-  static Future<dynamic> calculateRestingPulse(
-    List<HealthDataPoint> pulseData,
+  static Future<RestingPulseResponse> calculateRestingPulse(
+    RestingPulseRequest request,
   ) async {
     try {
-      final map = <Map<String, dynamic>>[];
-      for (var element in pulseData) {
-        map.add({
-          'time': element.dateTo.toString(),
-          'pulse': (element.value as NumericHealthValue).numericValue,
-        });
-      }
-      final response = await Network.post('$url/calculate_resting_pulse/',
-          data: {'pulse_data': map});
+      final response = await Network.post('$_url/calculate_resting_pulse/',
+          data: request.toJson());
       if (response.statusCode == 200) {
-        return response.data;
+        return RestingPulseResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to calculate resting pulse');
       }
@@ -46,7 +42,7 @@ abstract class CalculateService {
   }) async {
     try {
       final response =
-          await Network.post('$url/calculate_sleep_metrics/', data: {
+          await Network.post('$_url/calculate_sleep_metrics/', data: {
         'sleep_start': sleepStart,
         'sleep_end': sleepEnd,
         'total_sleep': totalSleep,
@@ -66,27 +62,45 @@ abstract class CalculateService {
     }
   }
 
-  static Future<dynamic> calculateLifeMetrics({
-    required int systolicPressure,
-    required int diastolicPressure,
-    required int restingHeartRate,
-    required int maxHeartRate,
-    required List<int> oxygenLevel,
-  }) async {
+  static Future<LifeMetricsResponse> calculateLifeMetrics(
+      LifeMetricsRequest request) async {
     try {
-      final data = {
-        'systolic_pressure': systolicPressure,
-        'diastolic_pressure': diastolicPressure,
-        'resting_heart_rate': restingHeartRate,
-        'max_heart_rate': maxHeartRate,
-        'oxygen_levels': oxygenLevel,
-      };
-      final response =
-          await Network.post('$url/calculate_life_metrics/', data: data);
+      final response = await Network.post('$_url/calculate_life_metrics/',
+          data: request.toJson());
       if (response.statusCode == 200) {
-        return response.data;
+        return LifeMetricsResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to calculate life metrics');
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  static Future<HealthMetricsResponse> calculateHealthMetrics(
+      HealthMetricsRequest request) async {
+    try {
+      final response = await Network.post('$_url/calculate_health_metrics/',
+          data: request.toJson());
+      if (response.statusCode == 200) {
+        return HealthMetricsResponse.fromJson(response.data);
+      } else {
+        throw Exception('Failed to calculate health metrics');
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  static Future<StepTrendsResponse> calculateStepTrends(
+      StepTrendsRequest request) async {
+    try {
+      final response = await Network.post('$_url/calculate_step_trends/',
+          data: request.toJson());
+      if (response.statusCode == 200) {
+        return StepTrendsResponse.fromJson(response.data);
+      } else {
+        throw Exception('Failed to calculate step trends');
       }
     } catch (e) {
       rethrow;
