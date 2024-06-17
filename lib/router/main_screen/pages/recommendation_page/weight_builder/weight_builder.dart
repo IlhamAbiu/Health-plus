@@ -42,7 +42,7 @@ class _WeightBuilderState extends State<WeightBuilder> {
               children: [
                 Row(
                   children: [
-                    Assets.svg.weightIcon.svg(),
+                    Assets.icons.weight.image(width: 24, height: 24),
                     const SizedBox(width: 10),
                     Text(
                       S().weight,
@@ -53,6 +53,25 @@ class _WeightBuilderState extends State<WeightBuilder> {
                       ),
                     ),
                     const Spacer(),
+                    state != null && !isCollapsed
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isCollapsed = true;
+                              });
+                              context.read<WeightCubit>().updateData();
+                            },
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              color: Colors.transparent,
+                              child: const Icon(
+                                Icons.refresh_outlined,
+                                color: Color(0xFFB0B2C3),
+                              ),
+                            ),
+                          )
+                        : const SizedBox(),
                     state != null
                         ? isCollapsed
                             ? GestureDetector(

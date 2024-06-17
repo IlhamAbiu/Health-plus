@@ -31,7 +31,7 @@ class LifeMetrics {
     int diastolicPressure = 0;
     int maxHeartRate = 0;
     final oxygenLevel = [95, 98];
-    final bloodPressureSystolic = await HealthService().fetchDataAfterToDay(
+    final bloodPressureSystolic = await HealthService().fetchDataAfter30days(
       types: [HealthDataType.BLOOD_PRESSURE_SYSTOLIC],
     );
     if (bloodPressureSystolic.isNotEmpty) {
@@ -48,7 +48,7 @@ class LifeMetrics {
       }
     }
 
-    final bloodPressureDiastolic = await HealthService().fetchDataAfterToDay(
+    final bloodPressureDiastolic = await HealthService().fetchDataAfter30days(
       types: [HealthDataType.BLOOD_PRESSURE_DIASTOLIC],
     );
     if (bloodPressureDiastolic.isNotEmpty) {
@@ -65,7 +65,7 @@ class LifeMetrics {
       }
     }
 
-    final maxHeartRateList = await HealthService().fetchDataAfterToDay(
+    final maxHeartRateList = await HealthService().fetchDataAfter30days(
       types: [HealthDataType.HEART_RATE],
     );
     if (maxHeartRateList.isNotEmpty) {

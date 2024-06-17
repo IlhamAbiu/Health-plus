@@ -21,6 +21,9 @@ List<RouteBase> get $appRoutes => [
       $profileRoute,
       $changeActivityLevelRoute,
       $changeHeightRoute,
+      $vitalSignsRoute,
+      $bodyParametersRoute,
+      $sleepIndicatorsRoute,
     ];
 
 RouteBase get $mainRoute => ShellRouteData.$route(
@@ -324,6 +327,74 @@ extension $ChangeHeightRouteExtension on ChangeHeightRoute {
 
   String get location => GoRouteData.$location(
         '/change_height',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $vitalSignsRoute => GoRouteData.$route(
+      path: '/vital_signs',
+      factory: $VitalSignsRouteExtension._fromState,
+    );
+
+extension $VitalSignsRouteExtension on VitalSignsRoute {
+  static VitalSignsRoute _fromState(GoRouterState state) => VitalSignsRoute();
+
+  String get location => GoRouteData.$location(
+        '/vital_signs',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $bodyParametersRoute => GoRouteData.$route(
+      path: '/body_parameters',
+      factory: $BodyParametersRouteExtension._fromState,
+    );
+
+extension $BodyParametersRouteExtension on BodyParametersRoute {
+  static BodyParametersRoute _fromState(GoRouterState state) =>
+      BodyParametersRoute();
+
+  String get location => GoRouteData.$location(
+        '/body_parameters',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $sleepIndicatorsRoute => GoRouteData.$route(
+      path: '/sleep_indocators',
+      factory: $SleepIndicatorsRouteExtension._fromState,
+    );
+
+extension $SleepIndicatorsRouteExtension on SleepIndicatorsRoute {
+  static SleepIndicatorsRoute _fromState(GoRouterState state) =>
+      SleepIndicatorsRoute();
+
+  String get location => GoRouteData.$location(
+        '/sleep_indocators',
       );
 
   void go(BuildContext context) => context.go(location);

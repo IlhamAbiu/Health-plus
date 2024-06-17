@@ -42,7 +42,7 @@ class _SleepBuilderState extends State<SleepBuilder> {
               children: [
                 Row(
                   children: [
-                    Assets.svg.sleep.svg(),
+                    Assets.icons.sleep.image(width: 24, height: 24),
                     const SizedBox(width: 10),
                     Text(
                       S().sleep,
@@ -53,6 +53,25 @@ class _SleepBuilderState extends State<SleepBuilder> {
                       ),
                     ),
                     const Spacer(),
+                    state != null && !isCollapsed
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isCollapsed = true;
+                              });
+                              context.read<SleepCubit>().updateData();
+                            },
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              color: Colors.transparent,
+                              child: const Icon(
+                                Icons.refresh_outlined,
+                                color: Color(0xFFB0B2C3),
+                              ),
+                            ),
+                          )
+                        : const SizedBox(),
                     state != null
                         ? isCollapsed
                             ? GestureDetector(

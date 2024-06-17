@@ -78,7 +78,6 @@ class HealthCubit extends Cubit<HealthState> {
       Activity();
       Weight();
       Sleep();
-
       StepTrends();
       LifeMetrics();
       HealthMetrics();

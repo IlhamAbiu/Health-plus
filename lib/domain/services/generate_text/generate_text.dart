@@ -1,12 +1,12 @@
 import 'package:health_plus/core/network.dart';
 
-import 'models/activity_request/activity_request.dart';
+import 'models/weight_request/weight_request.dart';
 import 'models/activity_response/activity_response.dart';
 import 'models/life_indicators_request/life_indicators_request.dart';
 import 'models/life_indicators_response/life_indicators_response.dart';
 import 'models/sleep_request/sleep_request.dart';
 import 'models/sleep_response/sleep_response.dart';
-import 'models/weight_request/weight_request.dart';
+import 'models/activity_request/activity_request.dart';
 import 'models/weight_response/weight_response.dart';
 
 class GenerateText {
@@ -19,7 +19,7 @@ class GenerateText {
       final response = await Network.post(
         '$_url/generate_text/',
         data: {
-          'prompt_number': 1,
+          'prompt_number': 3,
           'user_data': activity.toJson(),
         },
       );
@@ -60,7 +60,7 @@ class GenerateText {
       final response = await Network.post(
         '$_url/generate_text/',
         data: {
-          'prompt_number': 3,
+          'prompt_number': 1,
           'user_data': weight.toJson(),
         },
       );

@@ -14,6 +14,10 @@ class WeightCubit extends Cubit<WeightResponse?> {
 
   StreamSubscription? _subscription;
 
+  void updateData() async {
+    await Weight().updateData();
+  }
+
   @override
   Future<void> close() {
     _subscription?.cancel();

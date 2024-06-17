@@ -14,6 +14,10 @@ class SleepCubit extends Cubit<SleepResponse?> {
 
   StreamSubscription? _subscription;
 
+  void updateData() async {
+    await Sleep().updateData();
+  }
+
   @override
   Future<void> close() {
     _subscription?.cancel();

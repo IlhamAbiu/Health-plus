@@ -11,6 +11,10 @@ class ActivityCubit extends Cubit<ActivityResponse?> {
     });
   }
 
+  void updateData() async {
+    await Activity().generateActivity();
+  }
+
   StreamSubscription? _subscription;
 
   @override

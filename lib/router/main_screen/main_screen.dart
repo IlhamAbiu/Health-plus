@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health_plus/domain/user/user_repository.dart';
+import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
 import 'package:health_plus/router/router.dart';
 
@@ -37,11 +38,7 @@ class MainScreen extends StatelessWidget {
               onTap: () {
                 ProfileRoute().push(context);
               },
-              child: Icon(
-                Icons.account_circle_outlined,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 40,
-              ),
+              child: Assets.icons.profile.image(width: 40, height: 40),
             ),
           ),
         ],

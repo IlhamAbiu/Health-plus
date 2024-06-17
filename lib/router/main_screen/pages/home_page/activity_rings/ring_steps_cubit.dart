@@ -5,7 +5,7 @@ import 'package:health_plus/domain/services/calculate_service/models/step_trends
 import 'package:health_plus/features/step_trends/step_trends.dart';
 
 class RingStepsCubit extends Cubit<StepTrendsResponse?> {
-  RingStepsCubit() : super(StepTrends().lastSleepMetrics) {
+  RingStepsCubit() : super(StepTrends().lastStepTrends) {
     _subscription = StepTrends().stream.listen((event) {
       emit(event);
     });

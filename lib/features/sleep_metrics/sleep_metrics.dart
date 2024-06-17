@@ -42,13 +42,13 @@ class SleepMetrics {
       );
       String sleepStart = DateFormat('HH:mm').format(sleepSession.dateFrom);
       String sleepEnd = DateFormat('HH:mm').format(sleepSession.dateTo);
-      int totalSleep =
-          (sleepSession.value as NumericHealthValue).numericValue ~/ 60;
+      double totalSleep =
+          (sleepSession.value as NumericHealthValue).numericValue / 60;
       int wakeTime = 0;
-      int lightSleep = 0;
-      int deepSleep = 0;
-      int remSleep = 0;
-      int oxygenLevel = 98;
+      double lightSleep = 0;
+      double deepSleep = 0;
+      double remSleep = 0;
+      double oxygenLevel = 98;
 
       if (sleepAwakeAfter2days.isNotEmpty) {
         final sessions = <HealthDataPoint>[];
@@ -62,7 +62,7 @@ class SleepMetrics {
         for (var element in sessions) {
           time += (element.value as NumericHealthValue).numericValue.toInt();
         }
-        wakeTime = time ~/ 60;
+        wakeTime = time;
       }
 
       if (sleepLightAfter2days.isNotEmpty) {
@@ -78,8 +78,9 @@ class SleepMetrics {
         for (var element in sessions) {
           time += (element.value as NumericHealthValue).numericValue.toInt();
         }
-        lightSleep = time ~/ 60;
+        lightSleep = time / 60;
       }
+
       if (sleepDeepAfter2days.isNotEmpty) {
         final sessions = <HealthDataPoint>[];
         for (var element in sleepDeepAfter2days) {
@@ -93,8 +94,9 @@ class SleepMetrics {
         for (var element in sessions) {
           time += (element.value as NumericHealthValue).numericValue.toInt();
         }
-        deepSleep = time ~/ 60;
+        deepSleep = time / 60;
       }
+
       if (remSleepAfter2days.isNotEmpty) {
         final sessions = <HealthDataPoint>[];
         for (var element in remSleepAfter2days) {
@@ -108,8 +110,9 @@ class SleepMetrics {
         for (var element in sessions) {
           time += (element.value as NumericHealthValue).numericValue.toInt();
         }
-        remSleep = time ~/ 60;
+        remSleep = time / 60;
       }
+
       if (bloodOxygenAfter2days.isNotEmpty) {
         final sessions = <HealthDataPoint>[];
         for (var element in bloodOxygenAfter2days) {
@@ -131,7 +134,7 @@ class SleepMetrics {
               max = value.numericValue.toInt();
             }
           }
-          oxygenLevel = (max + min) ~/ 2;
+          oxygenLevel = (max + min) / 2;
         }
       }
 

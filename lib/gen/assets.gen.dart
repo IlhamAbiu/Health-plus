@@ -14,12 +14,21 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/icons/profile.png');
+
+  /// File path: assets/icons/sleep.png
+  AssetGenImage get sleep => const AssetGenImage('assets/icons/sleep.png');
+
   /// File path: assets/icons/visceral_fat.png
   AssetGenImage get visceralFat =>
       const AssetGenImage('assets/icons/visceral_fat.png');
 
+  /// File path: assets/icons/weight.png
+  AssetGenImage get weight => const AssetGenImage('assets/icons/weight.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [visceralFat];
+  List<AssetGenImage> get values => [profile, sleep, visceralFat, weight];
 }
 
 class $AssetsSvgGen {

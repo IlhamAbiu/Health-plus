@@ -58,11 +58,12 @@ class AppAuthorizationScreen extends StatelessWidget {
                             await HealthService().authorization();
                         if (authorized) {
                           final healthProvider = context.read<HealthCubit>();
-                          await healthProvider.fetchData();
                           final user = await UserRepository().getUser();
+
                           if (user == null) {
                             UserInputFormRoute().go(context);
                           } else {
+                            await healthProvider.fetchData();
                             HomeRoute().go(context);
                           }
                         } else {

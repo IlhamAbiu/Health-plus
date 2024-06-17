@@ -819,6 +819,466 @@ class S {
       args: [],
     );
   }
+
+  /// `Среднее артериальное давление`
+  String get average_arterial_pressure {
+    return Intl.message(
+      'Среднее артериальное давление',
+      name: 'average_arterial_pressure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель отражает среднее давление в артериях в течение одного сердечного цикла и важен для оценки состояния сердечно-сосудистой системы.`
+  String get average_arterial_pressure_description {
+    return Intl.message(
+      'Этот показатель отражает среднее давление в артериях в течение одного сердечного цикла и важен для оценки состояния сердечно-сосудистой системы.',
+      name: 'average_arterial_pressure_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пульсовое давление`
+  String get pulsate_pressure {
+    return Intl.message(
+      'Пульсовое давление',
+      name: 'pulsate_pressure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это разница между систолическим и диастолическим давлением, и оно помогает оценить жесткость артерий и состояние сердечно-сосудистой системы.`
+  String get pulsate_pressure_description {
+    return Intl.message(
+      'Это разница между систолическим и диастолическим давлением, и оно помогает оценить жесткость артерий и состояние сердечно-сосудистой системы.',
+      name: 'pulsate_pressure_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Средний пульс в покое`
+  String get average_pulse_at_rest {
+    return Intl.message(
+      'Средний пульс в покое',
+      name: 'average_pulse_at_rest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель указывает на частоту сердечных сокращений в состоянии покоя и важен для оценки общего состояния сердечно-сосудистой системы.`
+  String get average_pulse_at_rest_description {
+    return Intl.message(
+      'Этот показатель указывает на частоту сердечных сокращений в состоянии покоя и важен для оценки общего состояния сердечно-сосудистой системы.',
+      name: 'average_pulse_at_rest_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Физические параметры`
+  String get body_parameters {
+    return Intl.message(
+      'Физические параметры',
+      name: 'body_parameters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вес тела`
+  String get body_weight {
+    return Intl.message(
+      'Вес тела',
+      name: 'body_weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель важен для оценки общей массы тела и планирования диеты и физических упражнений.`
+  String get body_weight_description {
+    return Intl.message(
+      'Этот показатель важен для оценки общей массы тела и планирования диеты и физических упражнений.',
+      name: 'body_weight_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} кг`
+  String body_weight_value(String value) {
+    return Intl.message(
+      '$value кг',
+      name: 'body_weight_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Телесный жир`
+  String get body_fat {
+    return Intl.message(
+      'Телесный жир',
+      name: 'body_fat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Высокий уровень жира может указывать на повышенный риск развития различных заболеваний.`
+  String get body_fat_description {
+    return Intl.message(
+      'Высокий уровень жира может указывать на повышенный риск развития различных заболеваний.',
+      name: 'body_fat_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}%`
+  String body_fat_value(String value) {
+    return Intl.message(
+      '$value%',
+      name: 'body_fat_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Индекс висцерального жира`
+  String get visceral_fat_index {
+    return Intl.message(
+      'Индекс висцерального жира',
+      name: 'visceral_fat_index',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель помогает оценить количество жира вокруг внутренних органов, что важно для здоровья сердца и сосудов.`
+  String get visceral_fat_index_description {
+    return Intl.message(
+      'Этот показатель помогает оценить количество жира вокруг внутренних органов, что важно для здоровья сердца и сосудов.',
+      name: 'visceral_fat_index_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}`
+  String visceral_fat_index_value(String value) {
+    return Intl.message(
+      '$value',
+      name: 'visceral_fat_index_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Базальный метаболизм`
+  String get basal_metabolic {
+    return Intl.message(
+      'Базальный метаболизм',
+      name: 'basal_metabolic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это количество калорий, которое организм тратит в состоянии покоя для поддержания жизненно важных функций.`
+  String get basal_metabolic_description {
+    return Intl.message(
+      'Это количество калорий, которое организм тратит в состоянии покоя для поддержания жизненно важных функций.',
+      name: 'basal_metabolic_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} ккал`
+  String basal_metabolic_value(String value) {
+    return Intl.message(
+      '$value ккал',
+      name: 'basal_metabolic_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Калории для удержания веса`
+  String get maintenance_calories {
+    return Intl.message(
+      'Калории для удержания веса',
+      name: 'maintenance_calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это значение включает все энергозатраты организма при текущем уровне активности.`
+  String get maintenance_calories_description {
+    return Intl.message(
+      'Это значение включает все энергозатраты организма при текущем уровне активности.',
+      name: 'maintenance_calories_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} ккал`
+  String maintenance_calories_value(String value) {
+    return Intl.message(
+      '$value ккал',
+      name: 'maintenance_calories_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Калории для повешения веса`
+  String get weight_gain_calories {
+    return Intl.message(
+      'Калории для повешения веса',
+      name: 'weight_gain_calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Для набора веса рекомендуется потреблять 2200 ккал в день. Профицит калорий способствует увеличению массы тела.`
+  String get weight_gain_calories_description {
+    return Intl.message(
+      'Для набора веса рекомендуется потреблять 2200 ккал в день. Профицит калорий способствует увеличению массы тела.',
+      name: 'weight_gain_calories_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} ккал`
+  String weight_gain_calories_value(String value) {
+    return Intl.message(
+      '$value ккал',
+      name: 'weight_gain_calories_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Калории для снижения веса`
+  String get weight_loss_calories {
+    return Intl.message(
+      'Калории для снижения веса',
+      name: 'weight_loss_calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Дефицит калорий помогает уменьшить массу тела безопасными темпами.`
+  String get weight_loss_calories_description {
+    return Intl.message(
+      'Дефицит калорий помогает уменьшить массу тела безопасными темпами.',
+      name: 'weight_loss_calories_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} ккал`
+  String weight_loss_calories_value(String value) {
+    return Intl.message(
+      '$value ккал',
+      name: 'weight_loss_calories_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Индекс массы тела`
+  String get body_mass_index {
+    return Intl.message(
+      'Индекс массы тела',
+      name: 'body_mass_index',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель рассчитывается на основе роста и веса и помогает определить, находится ли масса тела в пределах нормы.`
+  String get body_mass_index_description {
+    return Intl.message(
+      'Этот показатель рассчитывается на основе роста и веса и помогает определить, находится ли масса тела в пределах нормы.',
+      name: 'body_mass_index_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}`
+  String body_mass_index_value(String value) {
+    return Intl.message(
+      '$value',
+      name: 'body_mass_index_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Эффективность сна`
+  String get sleep_efficiency {
+    return Intl.message(
+      'Эффективность сна',
+      name: 'sleep_efficiency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это показатель того, какой процент времени, проведенного в постели, был потрачен на сон, и он указывает на качество сна.`
+  String get sleep_efficiency_description {
+    return Intl.message(
+      'Это показатель того, какой процент времени, проведенного в постели, был потрачен на сон, и он указывает на качество сна.',
+      name: 'sleep_efficiency_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}%`
+  String sleep_efficiency_value(String value) {
+    return Intl.message(
+      '$value%',
+      name: 'sleep_efficiency_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Латентность сна`
+  String get sleep_latency {
+    return Intl.message(
+      'Латентность сна',
+      name: 'sleep_latency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это время, необходимое для засыпания после укладывания в постель, и длительная латентность может указывать на проблемы со сном.`
+  String get sleep_latency_description {
+    return Intl.message(
+      'Это время, необходимое для засыпания после укладывания в постель, и длительная латентность может указывать на проблемы со сном.',
+      name: 'sleep_latency_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} мин`
+  String sleep_latency_value(String value) {
+    return Intl.message(
+      '$value мин',
+      name: 'sleep_latency_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Процент глубокого сна`
+  String get percent_deep_sleep {
+    return Intl.message(
+      'Процент глубокого сна',
+      name: 'percent_deep_sleep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Глубокий сон важен для физического восстановления и обновления организма.`
+  String get percent_deep_sleep_description {
+    return Intl.message(
+      'Глубокий сон важен для физического восстановления и обновления организма.',
+      name: 'percent_deep_sleep_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}%`
+  String percent_deep_sleep_value(String value) {
+    return Intl.message(
+      '$value%',
+      name: 'percent_deep_sleep_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Процент REM сна`
+  String get percent_rem_sleep {
+    return Intl.message(
+      'Процент REM сна',
+      name: 'percent_rem_sleep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `REM (быстрый сон) важен для когнитивных функций, таких как память и обучение.`
+  String get percent_rem_sleep_description {
+    return Intl.message(
+      'REM (быстрый сон) важен для когнитивных функций, таких как память и обучение.',
+      name: 'percent_rem_sleep_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}%`
+  String percent_rem_sleep_value(String value) {
+    return Intl.message(
+      '$value%',
+      name: 'percent_rem_sleep_value',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Процент поверхностного сна`
+  String get percent_light_sleep {
+    return Intl.message(
+      'Процент поверхностного сна',
+      name: 'percent_light_sleep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Этот показатель отражает количество легкого сна, который также важен для общего качества сна, хотя и менее глубокий по сравнению с другими фазами.`
+  String get percent_light_sleep_description {
+    return Intl.message(
+      'Этот показатель отражает количество легкого сна, который также важен для общего качества сна, хотя и менее глубокий по сравнению с другими фазами.',
+      name: 'percent_light_sleep_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value}%`
+  String percent_light_sleep_value(String value) {
+    return Intl.message(
+      '$value%',
+      name: 'percent_light_sleep_value',
+      desc: '',
+      args: [value],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

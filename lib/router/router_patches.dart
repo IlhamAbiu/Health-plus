@@ -15,3 +15,7 @@ const stepsPath = '/steps';
 const profilePath = '/profile';
 const changeActivityLevelPath = '/change_activity_level';
 const changeHeightPath = '/change_height';
+
+const vitalSignsPath = '/vital_signs';
+const bodyParametersPath = '/body_parameters';
+const sleepIndicatorsPath = '/sleep_indocators';

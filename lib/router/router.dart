@@ -13,8 +13,11 @@ import 'main_screen/pages/recommendation_page/recommendation_page.dart';
 import 'main_screen/pages/statistics_page/statistics_page.dart';
 import 'profile_screen/profile_screen.dart';
 import 'router_patches.dart';
+import 'sleep_indicators_screen/sleep_indicators_screen.dart';
 import 'steps_screen/steps_screen.dart';
 import 'user_input_form/user_input_form.dart';
+import 'vital_signs_screen/vital_signs_sreen.dart';
+import 'body_parameters_screen/body_parameters_screen.dart';
 import 'weight_screen/weight_screen.dart';
 
 part 'router.g.dart';
@@ -218,5 +221,38 @@ class ChangeHeightRoute extends GoRouteData {
         context: context,
         state: state,
         child: const ChangeHeightScreen(),
+      );
+}
+
+@TypedGoRoute<VitalSignsRoute>(path: vitalSignsPath)
+class VitalSignsRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const VitalSignsScreen(),
+      );
+}
+
+@TypedGoRoute<BodyParametersRoute>(path: bodyParametersPath)
+class BodyParametersRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const BodyParametersScreen(),
+      );
+}
+
+@TypedGoRoute<SleepIndicatorsRoute>(path: sleepIndicatorsPath)
+class SleepIndicatorsRoute extends GoRouteData {
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      _buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const SleepIndicatorsScreen(),
       );
 }

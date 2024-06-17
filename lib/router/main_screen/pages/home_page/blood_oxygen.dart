@@ -45,7 +45,7 @@ class BloodOxygen extends StatelessWidget {
                     Assets.svg.bloodOxygen.svg(),
                     const SizedBox(width: 18.3),
                     FutureBuilder(
-                      future: _fetchDataToDay(),
+                      future: _fetchData(),
                       builder: (context, snapshot) => Text(
                         _text(snapshot.data),
                         textAlign: TextAlign.center,
@@ -86,9 +86,9 @@ class BloodOxygen extends StatelessWidget {
     }
   }
 
-  Future<NumericHealthValue?> _fetchDataToDay() async {
+  Future<NumericHealthValue?> _fetchData() async {
     final list = await HealthService()
-        .fetchDataAfterToDay(types: [HealthDataType.BLOOD_OXYGEN]);
+        .fetchDataAfter30days(types: [HealthDataType.BLOOD_OXYGEN]);
     return list.isEmpty ? null : list.last.value as NumericHealthValue;
   }
 }

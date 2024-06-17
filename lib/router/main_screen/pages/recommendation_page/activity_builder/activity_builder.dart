@@ -54,6 +54,25 @@ class _ActivityBuilderState extends State<ActivityBuilder> {
                       ),
                     ),
                     const Spacer(),
+                    state != null && !isCollapsed
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isCollapsed = true;
+                              });
+                              context.read<ActivityCubit>().updateData();
+                            },
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              color: Colors.transparent,
+                              child: const Icon(
+                                Icons.refresh_outlined,
+                                color: Color(0xFFB0B2C3),
+                              ),
+                            ),
+                          )
+                        : const SizedBox(),
                     state != null
                         ? isCollapsed
                             ? GestureDetector(

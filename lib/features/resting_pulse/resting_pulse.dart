@@ -20,7 +20,7 @@ class RestingPulse {
 
   Future<void> updateData() async {
     final data = await HealthService()
-        .fetchDataAfterToDay(types: [HealthDataType.HEART_RATE]);
+        .fetchDataAfter30days(types: [HealthDataType.HEART_RATE]);
 
     final List<PulseData> dataList = [];
 

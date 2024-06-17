@@ -24,92 +24,94 @@ class StepTrends {
 
   final _stream = StreamController<StepTrendsResponse?>.broadcast();
   Stream<StepTrendsResponse?> get stream => _stream.stream;
-  StepTrendsResponse? _lastSleepMetrics;
-  StepTrendsResponse? get lastSleepMetrics => _lastSleepMetrics;
+  StepTrendsResponse? _lastStepTrends;
+  StepTrendsResponse? get lastStepTrends => _lastStepTrends;
 
   Future<void> _updateData(HealthMetricsResponse? healthMetrics) async {
     if (healthMetrics != null) {
-      final weightList = await HealthService().fetchDataAfter30days(
-        types: [HealthDataType.WEIGHT],
-      );
-      int weight = UserRepository().user?.weight.round() ?? 0;
-
-      if (weightList.isNotEmpty) {
-        weight =
-            (weightList.last.value as NumericHealthValue).numericValue.round();
-      }
-
-      final heightList = await HealthService().fetchDataAfter30days(
-        types: [HealthDataType.HEIGHT],
-      );
-      int height = UserRepository().user?.height ?? 0;
-      if (heightList.isNotEmpty) {
-        height = ((heightList.last.value as NumericHealthValue)
-                    .numericValue
-                    .toDouble() *
-                100)
-            .round();
-      }
-
-      final age = DateTime.now().year - UserRepository().user!.birthday.year;
-      String gender = '';
-      switch (UserRepository().user!.gender) {
-        case Gender.male:
-          gender = 'male';
-          break;
-        case Gender.female:
-          gender = 'female';
-          break;
-      }
-      String activityLevel = '';
-
-      switch (UserRepository().user!.activityLevel) {
-        case ActivityLevel.veryLow:
-          activityLevel = 'sedentary';
-          break;
-        case ActivityLevel.low:
-          activityLevel = 'lightly_active';
-          break;
-        case ActivityLevel.medium:
-          activityLevel = 'moderately_active';
-          break;
-        case ActivityLevel.high:
-          activityLevel = 'very_active';
-          break;
-        case ActivityLevel.veryHigh:
-          activityLevel = 'extra_active';
-          break;
-      }
-
-      final stepsList = await HealthService().fetchDataAfter7days(
-        types: [HealthDataType.STEPS],
-      );
-
-      final List<StepData> steps = [];
-      for (var element in stepsList) {
-        if (element.value is NumericHealthValue) {
-          steps.add(StepData(
-            date: element.dateFrom.toString(),
-            steps: (element.value as NumericHealthValue).numericValue.round(),
-          ));
-        }
-      }
-
-      num targetCalories =
-          healthMetrics.maintenance_calories! - healthMetrics.TDEE!;
-      final stepTrendsResponse = StepTrendsRequest(
-        step_data: steps,
-        weight_kg: weight,
-        height_cm: height,
-        age_years: age,
-        gender: gender,
-        activity_level: activityLevel,
-        target_calories: targetCalories,
-      );
       try {
-        _lastSleepMetrics =
+        final weightList = await HealthService().fetchDataAfter30days(
+          types: [HealthDataType.WEIGHT],
+        );
+        int weight = UserRepository().user?.weight.round() ?? 0;
+
+        if (weightList.isNotEmpty) {
+          weight = (weightList.last.value as NumericHealthValue)
+              .numericValue
+              .round();
+        }
+
+        final heightList = await HealthService().fetchDataAfter30days(
+          types: [HealthDataType.HEIGHT],
+        );
+        int height = UserRepository().user?.height ?? 0;
+        if (heightList.isNotEmpty) {
+          height = ((heightList.last.value as NumericHealthValue)
+                      .numericValue
+                      .toDouble() *
+                  100)
+              .round();
+        }
+
+        final age = DateTime.now().year - UserRepository().user!.birthday.year;
+        String gender = '';
+        switch (UserRepository().user!.gender) {
+          case Gender.male:
+            gender = 'male';
+            break;
+          case Gender.female:
+            gender = 'female';
+            break;
+        }
+        String activityLevel = '';
+
+        switch (UserRepository().user!.activityLevel) {
+          case ActivityLevel.veryLow:
+            activityLevel = 'sedentary';
+            break;
+          case ActivityLevel.low:
+            activityLevel = 'lightly_active';
+            break;
+          case ActivityLevel.medium:
+            activityLevel = 'moderately_active';
+            break;
+          case ActivityLevel.high:
+            activityLevel = 'very_active';
+            break;
+          case ActivityLevel.veryHigh:
+            activityLevel = 'extra_active';
+            break;
+        }
+
+        final stepsList = await HealthService().fetchDataAfter7days(
+          types: [HealthDataType.STEPS],
+        );
+
+        final List<StepData> steps = [];
+        for (var element in stepsList) {
+          if (element.value is NumericHealthValue) {
+            steps.add(StepData(
+              date: element.dateFrom.toString(),
+              steps: (element.value as NumericHealthValue).numericValue.round(),
+            ));
+          }
+        }
+
+        num targetCalories =
+            healthMetrics.maintenance_calories! - healthMetrics.TDEE!;
+        final stepTrendsResponse = StepTrendsRequest(
+          step_data: steps,
+          weight_kg: weight,
+          height_cm: height,
+          age_years: age,
+          gender: gender,
+          activity_level: activityLevel,
+          target_calories: targetCalories,
+        );
+
+        _lastStepTrends =
             await CalculateService.calculateStepTrends(stepTrendsResponse);
-        _stream.add(_lastSleepMetrics);
+        _stream.add(_lastStepTrends);
       } catch (e) {
         log('Error calculating step trends', error: e);
         rethrow;

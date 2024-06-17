@@ -176,5 +176,142 @@
     "recommendations" : "Рекомендации",
     "activity" : "Активность",
     "life_indicators" : "Жизненные показатели",
-    "sleep" : "Сон"
- }
+    "sleep" : "Сон",
+    "average_arterial_pressure" : "Среднее артериальное давление",
+    "average_arterial_pressure_description" : "Этот показатель отражает среднее давление в артериях в течение одного сердечного цикла и важен для оценки состояния сердечно-сосудистой системы.",
+    "pulsate_pressure" : "Пульсовое давление",
+    "pulsate_pressure_description" : "Это разница между систолическим и диастолическим давлением, и оно помогает оценить жесткость артерий и состояние сердечно-сосудистой системы.",
+    "average_pulse_at_rest" : "Средний пульс в покое",
+    "average_pulse_at_rest_description" : "Этот показатель указывает на частоту сердечных сокращений в состоянии покоя и важен для оценки общего состояния сердечно-сосудистой системы.",
+    "body_parameters" : "Физические параметры",
+    "body_weight" : "Вес тела",
+    "body_weight_description" : "Этот показатель важен для оценки общей массы тела и планирования диеты и физических упражнений.",
+    "body_weight_value" : "{value} кг",
+    "@body_weight_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "body_fat" : "Телесный жир",
+    "body_fat_description" : "Высокий уровень жира может указывать на повышенный риск развития различных заболеваний.",
+    "body_fat_value" : "{value}%",
+    "@body_fat_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "visceral_fat_index" : "Индекс висцерального жира",
+    "visceral_fat_index_description" : "Этот показатель помогает оценить количество жира вокруг внутренних органов, что важно для здоровья сердца и сосудов.",
+    "visceral_fat_index_value" : "{value}",
+    "@visceral_fat_index_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "basal_metabolic" : "Базальный метаболизм",
+    "basal_metabolic_description" : "Это количество калорий, которое организм тратит в состоянии покоя для поддержания жизненно важных функций.",
+    "basal_metabolic_value" : "{value} ккал",
+    "@basal_metabolic_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "maintenance_calories" : "Калории для удержания веса",
+    "maintenance_calories_description" : "Это значение включает все энергозатраты организма при текущем уровне активности.",
+    "maintenance_calories_value" : "{value} ккал",
+    "@maintenance_calories_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "weight_gain_calories" : "Калории для повешения веса",
+    "weight_gain_calories_description" : "Для набора веса рекомендуется потреблять 2200 ккал в день. Профицит калорий способствует увеличению массы тела.",
+    "weight_gain_calories_value" : "{value} ккал",
+    "@weight_gain_calories_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "weight_loss_calories" : "Калории для снижения веса",
+    "weight_loss_calories_description" : "Дефицит калорий помогает уменьшить массу тела безопасными темпами.",
+    "weight_loss_calories_value" : "{value} ккал",
+    "@weight_loss_calories_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "body_mass_index" : "Индекс массы тела",
+    "body_mass_index_description" : "Этот показатель рассчитывается на основе роста и веса и помогает определить, находится ли масса тела в пределах нормы.",
+    "body_mass_index_value" : "{value}",
+    "@body_mass_index_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "sleep_efficiency" : "Эффективность сна",
+    "sleep_efficiency_description" : "Это показатель того, какой процент времени, проведенного в постели, был потрачен на сон, и он указывает на качество сна.",
+    "sleep_efficiency_value" : "{value}%",
+    "@sleep_efficiency_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "sleep_latency" : "Латентность сна",
+    "sleep_latency_description" : "Это время, необходимое для засыпания после укладывания в постель, и длительная латентность может указывать на проблемы со сном.",
+    "sleep_latency_value" : "{value} мин",
+    "@sleep_latency_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "percent_deep_sleep"  : "Процент глубокого сна",
+    "percent_deep_sleep_description" : "Глубокий сон важен для физического восстановления и обновления организма.",
+    "percent_deep_sleep_value" : "{value}%",
+    "@percent_deep_sleep_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "percent_rem_sleep" : "Процент REM сна",
+    "percent_rem_sleep_description" : "REM (быстрый сон) важен для когнитивных функций, таких как память и обучение.",
+    "percent_rem_sleep_value" : "{value}%",
+    "@percent_rem_sleep_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    },
+    "percent_light_sleep" : "Процент поверхностного сна",
+    "percent_light_sleep_description" : "Этот показатель отражает количество легкого сна, который также важен для общего качества сна, хотя и менее глубокий по сравнению с другими фазами.",
+    "percent_light_sleep_value" : "{value}%",
+    "@percent_light_sleep_value" : {
+        "placeholders" : {
+            "value" : {
+                "type"  :  "String"
+            }
+        }
+    }
+}

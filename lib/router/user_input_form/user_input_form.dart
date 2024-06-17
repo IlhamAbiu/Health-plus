@@ -1,5 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_plus/domain/providers/health_provider/health_cubit.dart';
 import 'package:health_plus/router/router.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
@@ -93,8 +96,9 @@ class _UserInputFormState extends State<UserInputForm> {
                 );
               }
             },
-            listener: (context, state) {
+            listener: (context, state) async {
               if (state == UserInputState.success) {
+                await context.read<HealthCubit>().fetchData();
                 HomeRoute().go(context);
               }
             },

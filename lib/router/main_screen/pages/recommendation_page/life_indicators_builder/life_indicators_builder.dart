@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:health_plus/domain/services/generate_text/models/life_indicators_response/life_indicators_response.dart';
 import 'package:health_plus/gen/assets.gen.dart';
 import 'package:health_plus/generated/l10n.dart';
-import 'package:health_plus/router/main_screen/pages/recommendation_page/life_indicators_builder/life_indicator_cubit.dart';
+import 'package:health_plus/router/main_screen/pages/recommendation_page/life_indicators_builder/life_indicators_cubit.dart';
 import 'package:health_plus/ui/components/loading_indicator.dart';
 
 class LifeIndicatorsBuilder extends StatefulWidget {
@@ -20,8 +20,8 @@ class _LifeIndicatorsBuilderState extends State<LifeIndicatorsBuilder> {
   Widget build(BuildContext context) {
     return BlocProvider(
       lazy: false,
-      create: (context) => LifeIndicatorCubit(),
-      child: BlocBuilder<LifeIndicatorCubit, LifeIndicatorsResponse?>(
+      create: (context) => LifeIndicatorsCubit(),
+      child: BlocBuilder<LifeIndicatorsCubit, LifeIndicatorsResponse?>(
         builder: (context, state) {
           return Container(
             width: double.infinity,
@@ -52,6 +52,25 @@ class _LifeIndicatorsBuilderState extends State<LifeIndicatorsBuilder> {
                       ),
                     ),
                     const Spacer(),
+                    state != null && !isCollapsed
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isCollapsed = true;
+                              });
+                              context.read<LifeIndicatorsCubit>().updateData();
+                            },
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              color: Colors.transparent,
+                              child: const Icon(
+                                Icons.refresh_outlined,
+                                color: Color(0xFFB0B2C3),
+                              ),
+                            ),
+                          )
+                        : const SizedBox(),
                     state != null
                         ? isCollapsed
                             ? GestureDetector(

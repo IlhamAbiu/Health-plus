@@ -33,12 +33,12 @@ abstract class CalculateService {
   static Future<dynamic> calculateSleepMetrics({
     required String sleepStart,
     required String sleepEnd,
-    required int totalSleep,
+    required double totalSleep,
     required int wakeTime,
-    required int lightSleep,
-    required int deepSleep,
-    required int remSleep,
-    required int oxygenLevel,
+    required double lightSleep,
+    required double deepSleep,
+    required double remSleep,
+    required double oxygenLevel,
   }) async {
     try {
       final response =
@@ -55,7 +55,8 @@ abstract class CalculateService {
       if (response.statusCode == 200) {
         return response.data;
       } else {
-        throw Exception('Failed to calculate sleep metrics');
+        throw Exception(
+            'Failed to calculate sleep metrics ${response.statusCode}, ${response.data}');
       }
     } catch (e) {
       rethrow;

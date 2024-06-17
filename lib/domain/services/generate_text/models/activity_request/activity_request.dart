@@ -9,18 +9,8 @@ part 'activity_request.g.dart';
 class ActivityRequest with _$ActivityRequest {
   @JsonSerializable(explicitToJson: true)
   const factory ActivityRequest({
-    required int height,
-    required int weight,
-    required int body_fat_percentage,
-    required int bmi,
-    required int basal_metabolism,
-    required int tdee,
-    required int avg_calories_burned_walking,
-    required int avg_calories_burned_exercise,
-    required int maintenance_calories,
-    required int weight_loss_calories,
-    required int weight_gain_calories,
-    required int visceral_fat_index,
+    required String step_trends,
+    required num target_calories,
     required int age,
     required String gender,
   }) = _ActivityRequest;

@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
 
+import 'package:health_plus/core/utils.dart';
 import 'package:health_plus/domain/services/calculate_service/models/life_metrics_response/life_metrics_response.dart';
 import 'package:health_plus/domain/services/calculate_service/models/resting_pulse_response/resting_pulse_response.dart';
 import 'package:health_plus/domain/services/generate_text/generate_text.dart';
@@ -13,13 +15,14 @@ import 'package:health_plus/features/resting_pulse/resting_pulse.dart';
 
 class LifeIndicators {
   LifeIndicators._() {
+    _read();
     RestingPulse().stream.listen((value) {
       _restingPulse = value;
-      _updateData();
+      _updateDataIsAvailable();
     });
     LifeMetrics().stream.listen((value) {
       _lifeMetricsResponse = value;
-      _updateData();
+      _updateDataIsAvailable();
     });
   }
   static LifeIndicators? _instance;
@@ -33,10 +36,34 @@ class LifeIndicators {
   RestingPulseResponse? _restingPulse;
   LifeMetricsResponse? _lifeMetricsResponse;
 
-  Future<void> _updateData() async {
+  static const String _key = 'life_indicators';
+
+  void _read() async {
+    final json = await Utils().read(_key);
+    if (json != null) {
+      _lifeIndicatorsText = LifeIndicatorsResponse.fromJson(jsonDecode(json));
+      _stream.add(_lifeIndicatorsText);
+    }
+  }
+
+  void _updateDataIsAvailable() async {
+    final json = await Utils().read(_key);
+    if (json != null) {
+      _lifeIndicatorsText = LifeIndicatorsResponse.fromJson(jsonDecode(json));
+      _stream.add(_lifeIndicatorsText);
+    }
+    if (_lifeIndicatorsText == null) {
+      updateData();
+    }
+  }
+
+  Future<void> updateData() async {
     if (_restingPulse == null || _lifeMetricsResponse == null) {
       return;
     }
+
+    _lifeIndicatorsText = null;
+    _stream.add(_lifeIndicatorsText);
 
     try {
       final restingPulse = _restingPulse!.resting_pulse!;
@@ -58,6 +85,7 @@ class LifeIndicators {
 
       _lifeIndicatorsText = await GenerateText.lifeIndicators(request);
       _stream.add(_lifeIndicatorsText);
+      Utils().write(_key, jsonEncode(_lifeIndicatorsText!.toJson()));
     } catch (e) {
       log('Error updating life indicators', error: e);
       rethrow;
